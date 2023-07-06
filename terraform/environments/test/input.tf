@@ -19,3 +19,9 @@ variable "vm_size" {}
 variable "vm_admin_username" {}
 variable "packer_image_name" {}
 variable "public_key_path" {}
+
+# Storage Account
+variable "storage_account_name" {}
+variable "storage_account_container_name" {}
+variable "storage_account_key" {}
+variable "storage_account_access_key" {}

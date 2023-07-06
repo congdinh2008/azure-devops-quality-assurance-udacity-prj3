@@ -1,0 +1,4 @@
+storage_account_name = "tfstate123456789"
+container_name       = "tfstate"
+key                  = "terraform.tfstate"
+access_key           = "tePNuKEU/4hpuFI0dAea6vJF4XpDmxlp+jG3iXYy4ZRs6jIfa5hkWxWNVHa9YQrGHH/AECVhxftM+AStFzX2EQ=="
