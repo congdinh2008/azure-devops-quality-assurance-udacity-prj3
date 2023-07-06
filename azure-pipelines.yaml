@@ -9,7 +9,7 @@ trigger:
 
 # ToDo: Replace the agent pool name, if you are using Udacity Cloud lab.
 # Otherwise, comment out the line below.
-pool: udacity-project03
+pool: Azure Pipelines
 
 variables:
   python.version: "3.7.6"
