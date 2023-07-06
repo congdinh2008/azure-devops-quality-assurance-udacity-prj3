@@ -3,3 +3,4 @@ terraform/environments/test/terraform.tfvars
 terraform/environments/test/.terraform.lock.hcl
 terraform/environments/test/backend.conf
 terraform/environments/test/.terraform/**
+udacity/**
