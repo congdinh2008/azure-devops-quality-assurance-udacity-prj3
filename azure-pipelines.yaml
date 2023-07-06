@@ -310,6 +310,7 @@ stages:
           - task: Bash@3
             displayName: Run JMeter Stress Test
             inputs:
+              workingDirectory: '$(System.DefaultWorkingDirectory)/automatedtesting/jmeter'
               targetType: "inline"
               script: |
                 ./apache-jmeter-5.4/bin/jmeter -n -t StressTestSuite.jmx \
@@ -320,6 +321,7 @@ stages:
           - task: Bash@3
             displayName: Run JMeter Endurance Test
             inputs:
+              workingDirectory: '$(System.DefaultWorkingDirectory)/automatedtesting/jmeter'
               targetType: "inline"
               script: |
                 ./apache-jmeter-5.4/bin/jmeter -n -t EnduranceTestSuite.jmx \
