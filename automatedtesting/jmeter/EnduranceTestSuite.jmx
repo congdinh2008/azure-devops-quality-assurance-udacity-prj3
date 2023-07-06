@@ -47,7 +47,7 @@
       </HeaderManager>
       <hashTree/>
       <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV IDs Source">
-        <stringProp name="filename">/home/vsts/work/1/s/jmeter/genereal_ids.csv</stringProp>
+        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/genereal_ids.csv</stringProp>
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames">id</stringProp>
         <boolProp name="ignoreFirstLine">false</boolProp>
@@ -59,7 +59,7 @@
       </CSVDataSet>
       <hashTree/>
       <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV BookIDs Source">
-        <stringProp name="filename">/home/vsts/work/1/s/jmeter/book_ids.csv</stringProp>
+        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/book_ids.csv</stringProp>
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames">bookId</stringProp>
         <boolProp name="ignoreFirstLine">false</boolProp>
@@ -71,7 +71,7 @@
       </CSVDataSet>
       <hashTree/>
       <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Book Objs">
-        <stringProp name="filename">/home/vsts/work/1/s/jmeter/objs_books.csv</stringProp>
+        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/objs_books.csv</stringProp>
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames">BookID,BookTitle,BookDescription,BookPageCount,BookExcerpt,BookPublishDate</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
@@ -83,7 +83,7 @@
       </CSVDataSet>
       <hashTree/>
       <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Activity Objs">
-        <stringProp name="filename">/home/vsts/work/1/s/jmeter/objs_activity.csv</stringProp>
+        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/objs_activity.csv</stringProp>
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames">ActivityID,ActivityTitle,ActivityDueDate,ActivityCompleted</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
@@ -95,7 +95,7 @@
       </CSVDataSet>
       <hashTree/>
       <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV CoverPhotos Objs">
-        <stringProp name="filename">/home/vsts/work/1/s/jmeter/objs_cover_photos.csv</stringProp>
+        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/objs_cover_photos.csv</stringProp>
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames">CoverPhotosID,CoverPhotosIDBook,CoverPhotosUrl</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
@@ -107,7 +107,7 @@
       </CSVDataSet>
       <hashTree/>
       <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV User Objs">
-        <stringProp name="filename">/home/vsts/work/1/s/jmeter/objs_users.csv</stringProp>
+        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/objs_users.csv</stringProp>
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames">UserID,UserUserName,UserPassword</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
@@ -119,7 +119,7 @@
       </CSVDataSet>
       <hashTree/>
       <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Author Objs">
-        <stringProp name="filename">/home/vsts/work/1/s/jmeter/objs_author.csv</stringProp>
+        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/objs_author.csv</stringProp>
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames">AuthorID,AuthorIDBook,AuthorFirstName,AuthorLastName</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
