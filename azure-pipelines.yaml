@@ -95,7 +95,8 @@ stages:
             displayName: "Terrafom init"
             inputs:
               provider: "azurerm"
-              command: "init -backend-config=backend.conf"
+              command: "init"
+              commandOptions: '-backend-config=backend.conf'
               workingDirectory: "$(projectRoot)/terraform/environments/test"
               backendServiceArm: "$(azureServiceConnectionId)"
               backendAzureRmResourceGroupName: "Azuredevops"
