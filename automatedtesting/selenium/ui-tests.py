@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 import logging
 
 logging.basicConfig(
+    filename='selenium.log',
     format='%(asctime)s %(levelname)-8s %(message)s',
     level=logging.INFO,
     datefmt='%Y-%m-%d %H:%M:%S')
@@ -17,6 +18,7 @@ URL_CART = 'https://www.saucedemo.com/cart.html'
 
 
 def login(user, password):
+    logging.info('Starting the login test')
     # --uncomment when running in Azure DevOps.
     # options = ChromeOptions()
     # options.add_argument("--headless")
@@ -50,7 +52,7 @@ def login(user, password):
 
 
 def addItem(driver):
-    logging.info("Test adding item to cart")
+    logging.info("Start test adding item to cart")
     items = driver.find_elements(By.CSS_SELECTOR, '.inventory_item')
 
     for i in range(0, len(items)):
@@ -82,7 +84,7 @@ def addItem(driver):
 
 
 def removeItem(driver):
-    logging.info("Test remove item from the cart")
+    logging.info("Start test remove item from the cart")
 
     items = driver.find_elements(By.CSS_SELECTOR, '.cart_item')
 
