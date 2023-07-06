@@ -5,6 +5,7 @@ name: Azure Pipelines
 # https://aka.ms/yaml
 trigger:
   - main
+  - dev
 
 # ToDo: Replace the agent pool name, if you are using Udacity Cloud lab.
 # Otherwise, comment out the line below.
