@@ -282,7 +282,7 @@ stages:
           - task: PublishTestResults@2
             inputs:
               testResultsFormat: "JUnit"
-              testResultsFiles: "**/TEST-*.xml"
+              testResultsFiles: "**/TEST*.xml"
               searchFolder: "$(projectRoot)/output/newman/" # ToDo
               mergeTestResults: true
               testRunTitle: "Regression and validation test results" # ToDo
