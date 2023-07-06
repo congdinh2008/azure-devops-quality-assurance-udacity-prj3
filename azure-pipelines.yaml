@@ -198,7 +198,7 @@ stages:
                   inputs:
                     azureSubscription: "udacity-connection" # ToDo
                     appType: "webAppLinux"
-                    appName: "WebApplication-AppService-udacity-prj3" # ToDo
+                    appName: "WebApplication-AppService-congdinh-prj3" # ToDo
                     package: $(Pipeline.Workspace)/drop-fakerestapi/$(Build.BuildId)-fakerestapi.zip # ToDo: Use the published zip artifact.
 
       #--------------------------------------------#
