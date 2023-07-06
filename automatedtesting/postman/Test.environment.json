@@ -1,0 +1,14 @@
+{
+	"id": "b69ca6a6-00e1-4a1f-a713-fac4de7d012b",
+	"name": "Udacity Project 03",
+	"values": [
+		{
+			"key": "url",
+			"value": "http://webapplication-appservice-congdinh-prj3.azurewebsites.net/api",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2021-02-20T15:11:52.172Z",
+	"_postman_exported_using": "Postman/8.0.6"
+}
