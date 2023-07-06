@@ -267,7 +267,7 @@ stages:
             inputs:
               workingDirectory: "$(projectRoot)/automatedtesting/postman"
               targetType: "inline"
-              script: "newman run TestSuite.Data-Validation.json -e Test.environment.json --reporters cli,junit --reporter-junit-export TEST-DataValidation.xml"
+              script: "newman run TestSuite.Data-Validation.json -e Test.environment.json --reporters cli,junit --reporter-junit-export results/TEST-DataValidation.xml"
           # Postman Regression Test Suite
           # ToDo: Verify the working directory
           - task: Bash@3
@@ -276,14 +276,20 @@ stages:
             inputs:
               workingDirectory: "$(projectRoot)/automatedtesting/postman"
               targetType: "inline"
-              script: "newman run TestSuite.Regression.json -e Test.environment.json --reporters cli,junit --reporter-junit-export TEST-Regression.xml"
-          # Postman - Publish Results
+              script: "newman run TestSuite.Regression.json -e Test.environment.json --reporters cli,junit --reporter-junit-export results/TEST-Regression.xml"
+          
+          - task: PublishPipelineArtifact@1
+            displayName: Publish Postman Test Result
+            inputs:
+              targetPath: '$(projectRoot)/automatedtesting/postman/results'
+              artifactName: 'drop-postman-result'
+              # Postman - Publish Results
           # ToDo: Complete the task as explained here: https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/test/publish-test-results?view=azure-devops&tabs=trx%2Cyaml#yaml-snippet
           - task: PublishTestResults@2
             inputs:
               testResultsFormat: "JUnit"
-              testResultsFiles: "**/TEST*.xml"
-              searchFolder: "$(projectRoot)/output/newman/" # ToDo
+              testResultsFiles: "TEST-*.xml"
+              searchFolder: "$(projectRoot)/automatedtesting/postman/results" # ToDo
               mergeTestResults: true
               testRunTitle: "Regression and validation test results" # ToDo
 
