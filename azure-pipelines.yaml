@@ -100,9 +100,6 @@ stages:
               workingDirectory: "$(projectRoot)/terraform/environments/test"
               backendServiceArm: "$(azureServiceConnectionId)"
               backendAzureRmResourceGroupName: "Azuredevops"
-              backendAzureRmStorageAccountName: "tfstate1919722654"
-              backendAzureRmContainerName: "tfstate"
-              backendAzureRmKey: "terraform.tfstate"
 
           - task: TerraformTaskV3@3
             displayName: Terraform validate
