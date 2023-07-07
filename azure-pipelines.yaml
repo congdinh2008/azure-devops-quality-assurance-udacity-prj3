@@ -128,58 +128,58 @@ stages:
   #             workingDirectory: "$(projectRoot)/terraform/environments/test"
   #             environmentServiceNameAzureRM: "$(azureServiceConnectionId)"
 
-  # #--------------------------------------------#
-  # # BUILD STAGE
-  # #--------------------------------------------#
-  # - stage: Build
-  #   displayName: Build
-  #   jobs:
-  #     - job: Build
-  #       displayName: Build
-  #       steps:
-  #         #--------------------------------------------#
-  #         # FakeRestAPI - Archive
-  #         # ToDo: Complete the ArchiveFiles@2 task and publish step
-  #         - task: ArchiveFiles@2
-  #           displayName: "Archive FakeRestAPI"
-  #           inputs:
-  #             rootFolderOrFile: "$(projectRoot)/automatedtesting/jmeter/fakerestapi"
-  #             includeRootFolder: false
-  #             archiveType: "zip"
-  #             archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-fakerestapi.zip"
-  #         - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)-fakerestapi.zip
-  #           displayName: "Upload Package"
-  #           artifact: drop-fakerestapi
+  #--------------------------------------------#
+  # BUILD STAGE
+  #--------------------------------------------#
+  - stage: Build
+    displayName: Build
+    jobs:
+      - job: Build
+        displayName: Build
+        steps:
+          # #--------------------------------------------#
+          # # FakeRestAPI - Archive
+          # # ToDo: Complete the ArchiveFiles@2 task and publish step
+          # - task: ArchiveFiles@2
+          #   displayName: "Archive FakeRestAPI"
+          #   inputs:
+          #     rootFolderOrFile: "$(projectRoot)/automatedtesting/jmeter/fakerestapi"
+          #     includeRootFolder: false
+          #     archiveType: "zip"
+          #     archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-fakerestapi.zip"
+          # - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)-fakerestapi.zip
+          #   displayName: "Upload Package"
+          #   artifact: drop-fakerestapi
 
-  #         #--------------------------------------------#
-  #         # Selenium (UI) Test Suite - Archive the package
-  #         # "ArchiveFiles@2" picks up the web package and archives it.
-  #         - task: ArchiveFiles@2
-  #           displayName: "Archive UI Tests"
-  #           inputs:
-  #             rootFolderOrFile: "$(projectRoot)/automatedtesting/selenium"
-  #             includeRootFolder: false
-  #             archiveType: "zip"
-  #             archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-ui-tests.zip"
-  #         # Selenium Test Suite - Publish the package
-  #         - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)-ui-tests.zip # Same as the archiveFile artifact above.
-  #           displayName: "Upload Package"
-  #           artifact: drop-ui-tests
+          #--------------------------------------------#
+          # Selenium (UI) Test Suite - Archive the package
+          # "ArchiveFiles@2" picks up the web package and archives it.
+          - task: ArchiveFiles@2
+            displayName: "Archive UI Tests"
+            inputs:
+              rootFolderOrFile: "$(projectRoot)/automatedtesting/selenium"
+              includeRootFolder: false
+              archiveType: "zip"
+              archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-ui-tests.zip"
+          # Selenium Test Suite - Publish the package
+          - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)-ui-tests.zip # Same as the archiveFile artifact above.
+            displayName: "Upload Package"
+            artifact: drop-ui-tests
           
-  #         #--------------------------------------------#  
-  #         # JMeter (Performance) Test Suite - Archive
-  #         # ToDo: Complete the ArchiveFiles@2 task and publish step 
-  #         - task: ArchiveFiles@2
-  #           displayName: 'Archive PerformanceTestSuite'
-  #           inputs:
-  #             rootFolderOrFile: "$(projectRoot)/automatedtesting/jmeter"
-  #             includeRootFolder: false
-  #             archiveType: 'zip'
-  #             archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-perftests.zip'
-  #         # JMeter Test Suite - Publish    
-  #         - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)-perftests.zip
-  #           displayName: 'Upload Package'
-  #           artifact: drop-perftests
+          # #--------------------------------------------#  
+          # # JMeter (Performance) Test Suite - Archive
+          # # ToDo: Complete the ArchiveFiles@2 task and publish step 
+          # - task: ArchiveFiles@2
+          #   displayName: 'Archive PerformanceTestSuite'
+          #   inputs:
+          #     rootFolderOrFile: "$(projectRoot)/automatedtesting/jmeter"
+          #     includeRootFolder: false
+          #     archiveType: 'zip'
+          #     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-perftests.zip'
+          # # JMeter Test Suite - Publish    
+          # - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)-perftests.zip
+          #   displayName: 'Upload Package'
+          #   artifact: drop-perftests
 
   # - stage: Deployment
   #   displayName: Deployment
@@ -318,26 +318,26 @@ stages:
                 -j log/jmeter/endurance-test.log -e -f \
                 -o log/jmeter/endurance-test-report-html
 
-          # - task: Bash@3
-          #   displayName: Run JMeter Stress Test
-          #   inputs:
-          #     targetType: "inline"
-          #     script: |
-          #       ./apache-jmeter-5.6/bin/jmeter -n -t $(projectRoot)/automatedtesting/jmeter/StressTestSuite.jmx \
-          #       -l log/jmeter/stress-test.csv \
-          #       -j log/jmeter/stress-test.log -e -f \
-          #       -o log/jmeter/stress-test-report-html
+          - task: Bash@3
+            displayName: Run JMeter Stress Test
+            inputs:
+              targetType: "inline"
+              script: |
+                ./apache-jmeter-5.6/bin/jmeter -n -t $(projectRoot)/automatedtesting/jmeter/StressTestSuite.jmx \
+                -l log/jmeter/stress-test.csv \
+                -j log/jmeter/stress-test.log -e -f \
+                -o log/jmeter/stress-test-report-html
 
-          #--------------------------------------------#
-          # JMeter (Performance) Test Suite - Archive
-          # ToDo: Complete the ArchiveFiles@2 task and publish step
-          # - task: ArchiveFiles@2
-          #   displayName: "Archive Stress Test Report"
-          #   inputs:
-          #     rootFolderOrFile: "$(projectRoot)/log/jmeter/stress-test-report-html"
-          #     includeRootFolder: false
-          #     archiveType: "zip"
-          #     archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-stress-test-report-html.zip"
+          --------------------------------------------#
+          JMeter (Performance) Test Suite - Archive
+          ToDo: Complete the ArchiveFiles@2 task and publish step
+          - task: ArchiveFiles@2
+            displayName: "Archive Stress Test Report"
+            inputs:
+              rootFolderOrFile: "$(projectRoot)/log/jmeter/stress-test-report-html"
+              includeRootFolder: false
+              archiveType: "zip"
+              archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-stress-test-report-html.zip"
 
           - task: ArchiveFiles@2
             displayName: "Archive Endurance Test Report"
