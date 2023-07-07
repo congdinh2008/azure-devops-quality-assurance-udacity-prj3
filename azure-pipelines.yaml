@@ -374,14 +374,16 @@ stages:
                       sudo mkdir -p /var/log/selenium
                       sudo chmod 664 /var/log/selenium
                       
-                      sudo python3 -u ui-tests.py
-                      ls
-                      # copy selenium log file to $(projectRoot)/log/selenium/
+                      sudo python3 -u ui-tests.py 2>&1 | sudo tee -a /var/log/selenium/selenium.log
+
+                      # Copy selenium log file to $(projectRoot)/log/selenium/
+
                       cd $(projectRoot)
                       mkdir -p log/selenium
                       pwd
-                      sudo cp selenium.log log/selenium/selenium.log
+                      sudo cp /var/log/selenium/selenium.log log/selenium/selenium.log
                       ls -la
+
                 - task: PublishPipelineArtifact@1
                   displayName: Publish selenium logs
                   inputs:
