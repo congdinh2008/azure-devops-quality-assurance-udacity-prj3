@@ -328,9 +328,9 @@ stages:
                 -j log/jmeter/stress-test.log -e -f \
                 -o log/jmeter/stress-test-report-html
 
-          --------------------------------------------#
-          JMeter (Performance) Test Suite - Archive
-          ToDo: Complete the ArchiveFiles@2 task and publish step
+          #--------------------------------------------#
+          # JMeter (Performance) Test Suite - Archive
+          # ToDo: Complete the ArchiveFiles@2 task and publish step
           - task: ArchiveFiles@2
             displayName: "Archive Stress Test Report"
             inputs:
