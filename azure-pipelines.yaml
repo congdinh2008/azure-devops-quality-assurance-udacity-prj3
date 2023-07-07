@@ -305,9 +305,9 @@ stages:
               script: |
                 sudo apt-get install openjdk-11-jre-headless -y
                 java -version
-                wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.tgz -O jmeter.tgz
+                wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.tgz -O jmeter.tgz
                 tar xzvf jmeter.tgz
-                apache-jmeter-5.4/bin/jmeter --version
+                apache-jmeter-5.6/bin/jmeter --version
                 # create log directory
                 mkdir -p log/jmeter
                 pwd
@@ -318,7 +318,7 @@ stages:
             inputs:
               targetType: "inline"
               script: |
-                ./apache-jmeter-5.4/bin/jmeter -n -t $(projectRoot)/automatedtesting/jmeter/EnduranceTestSuite.jmx \
+                ./apache-jmeter-5.6/bin/jmeter -n -t $(projectRoot)/automatedtesting/jmeter/EnduranceTestSuite.jmx \
                 -l log/jmeter/endurance-test.csv \
                 -j log/jmeter/endurance-test.log -e -f \
                 -o log/jmeter/endurance-test-report-html
@@ -328,7 +328,7 @@ stages:
             inputs:
               targetType: "inline"
               script: |
-                ./apache-jmeter-5.4/bin/jmeter -n -t $(projectRoot)/automatedtesting/jmeter/StressTestSuite.jmx \
+                ./apache-jmeter-5.6/bin/jmeter -n -t $(projectRoot)/automatedtesting/jmeter/StressTestSuite.jmx \
                 -l log/jmeter/stress-test.csv \
                 -j log/jmeter/stress-test.log -e -f \
                 -o log/jmeter/stress-test-report-html
