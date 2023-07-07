@@ -376,10 +376,13 @@ stages:
                       
                       sudo python3 -u ui-tests.py
 
-                      mkdir -p log/selenium
+                      mkdir -p home/logs/selenium
                       pwd
-                      sudo cp selenium.log log/selenium/selenium.log
+                      ls
+                      sudo cp selenium.log home/logs/selenium/selenium.log
                       ls -la
+                      cd home/logs/selenium/
+                      ls
 
                 - task: PublishPipelineArtifact@1
                   displayName: Publish selenium logs
