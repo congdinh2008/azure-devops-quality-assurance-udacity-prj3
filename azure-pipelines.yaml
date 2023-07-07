@@ -228,16 +228,9 @@ stages:
 
                       cd ~/
 
-                      DIR=/home/testuser/app
-                      if [ ! -d "$DIR" ]; then
-                          mkdir app
-                      fi
-                      
                       rm -f chromedriver_*
-                      FILE=/home/testuser/app/chromedriver_linux64.zip
-                      if [ ! -f "$FILE" ]; then
-                          wget https://chromedriver.storage.googleapis.com/112.0.5615.49/chromedriver_linux64.zip
-                      fi
+                      wget https://chromedriver.storage.googleapis.com/112.0.5615.49/chromedriver_linux64.zip
+
                       unzip -o chromedriver_linux64.zip
                       sudo ln -sf $PWD/chromedriver /usr/local/bin/chromedriver
 
