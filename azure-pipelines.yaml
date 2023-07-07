@@ -234,8 +234,7 @@ stages:
                       
   #                     FILE=/home/testuser/app/chromedriver_linux64.zip
   #                     if [ ! -f "$FILE" ]; then
-  #                         LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-  #                         wget http://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip
+  #                         wget https://chromedriver.storage.googleapis.com/112.0.5615.49/chromedriver_linux64.zip
   #                     fi
   #                     unzip -o chromedriver_linux64.zip
   #                     sudo ln -sf $PWD/chromedriver /usr/local/bin/chromedriver
