@@ -46,8 +46,8 @@
         </collectionProp>
       </HeaderManager>
       <hashTree/>
-      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV IDs Source">
-        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/genereal_ids.csv</stringProp>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="General Ids CSV">
+        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/csv/general_ids.csv</stringProp>
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames">id</stringProp>
         <boolProp name="ignoreFirstLine">false</boolProp>
@@ -58,10 +58,10 @@
         <stringProp name="shareMode">shareMode.all</stringProp>
       </CSVDataSet>
       <hashTree/>
-      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV BookIDs Source">
-        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/book_ids.csv</stringProp>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Book Ids CSV">
+        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/csv/book_ids.csv</stringProp>
         <stringProp name="fileEncoding"></stringProp>
-        <stringProp name="variableNames">bookId</stringProp>
+        <stringProp name="variableNames">BookId</stringProp>
         <boolProp name="ignoreFirstLine">false</boolProp>
         <stringProp name="delimiter">,</stringProp>
         <boolProp name="quotedData">false</boolProp>
@@ -70,10 +70,10 @@
         <stringProp name="shareMode">shareMode.all</stringProp>
       </CSVDataSet>
       <hashTree/>
-      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Book Objs">
-        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/objs_books.csv</stringProp>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Book Objs CSV">
+        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/csv/books_objs.csv</stringProp>
         <stringProp name="fileEncoding"></stringProp>
-        <stringProp name="variableNames">BookID,BookTitle,BookDescription,BookPageCount,BookExcerpt,BookPublishDate</stringProp>
+        <stringProp name="variableNames">BookID,BookTitle,Description,PageCount,Excerpt,PublishDate</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
         <stringProp name="delimiter">,</stringProp>
         <boolProp name="quotedData">false</boolProp>
@@ -82,10 +82,10 @@
         <stringProp name="shareMode">shareMode.all</stringProp>
       </CSVDataSet>
       <hashTree/>
-      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Activity Objs">
-        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/objs_activity.csv</stringProp>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Activity Objs CSV">
+        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/csv/activity_objs.csv</stringProp>
         <stringProp name="fileEncoding"></stringProp>
-        <stringProp name="variableNames">ActivityID,ActivityTitle,ActivityDueDate,ActivityCompleted</stringProp>
+        <stringProp name="variableNames">ActivityID,ActivityTitle,DueDate,Completed</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
         <stringProp name="delimiter">,</stringProp>
         <boolProp name="quotedData">false</boolProp>
@@ -94,10 +94,10 @@
         <stringProp name="shareMode">shareMode.all</stringProp>
       </CSVDataSet>
       <hashTree/>
-      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV CoverPhotos Objs">
-        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/objs_cover_photos.csv</stringProp>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CoverPhotos Objs CSV">
+        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/csv/cover_photos_objs.csv</stringProp>
         <stringProp name="fileEncoding"></stringProp>
-        <stringProp name="variableNames">CoverPhotosID,CoverPhotosIDBook,CoverPhotosUrl</stringProp>
+        <stringProp name="variableNames">CoverPhotosID,CoverPhotosIDBook,Url</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
         <stringProp name="delimiter">,</stringProp>
         <boolProp name="quotedData">false</boolProp>
@@ -106,10 +106,10 @@
         <stringProp name="shareMode">shareMode.all</stringProp>
       </CSVDataSet>
       <hashTree/>
-      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV User Objs">
-        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/objs_users.csv</stringProp>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="User Objs CSV">
+        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/csv/users_objs.csv</stringProp>
         <stringProp name="fileEncoding"></stringProp>
-        <stringProp name="variableNames">UserID,UserUserName,UserPassword</stringProp>
+        <stringProp name="variableNames">UserID,UserName,Password</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
         <stringProp name="delimiter">,</stringProp>
         <boolProp name="quotedData">false</boolProp>
@@ -118,10 +118,10 @@
         <stringProp name="shareMode">shareMode.all</stringProp>
       </CSVDataSet>
       <hashTree/>
-      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Author Objs">
-        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/objs_author.csv</stringProp>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Author Objs CSV">
+        <stringProp name="filename">/home/vsts/work/1/s/automatedtesting/jmeter/csv/author_objs.csv</stringProp>
         <stringProp name="fileEncoding"></stringProp>
-        <stringProp name="variableNames">AuthorID,AuthorIDBook,AuthorFirstName,AuthorLastName</stringProp>
+        <stringProp name="variableNames">AuthorID,AuthorIDBook,FirstName,LastName</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
         <stringProp name="delimiter">,</stringProp>
         <boolProp name="quotedData">false</boolProp>
@@ -130,7 +130,7 @@
         <stringProp name="shareMode">shareMode.all</stringProp>
       </CSVDataSet>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Stress Test Suite">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="StressTestSuite">
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
@@ -140,30 +140,32 @@
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+        <stringProp name="TestPlan.comments">Stress Test Suite</stringProp>
       </ThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="activities all GET">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get all activities">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Activities</stringProp>
+          <stringProp name="HTTPSampler.path">/api/activities</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="TestPlan.comments">Get all activities</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="activities GET">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get an activity">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Activities/${id}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/activities/${id}</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Gets the activity with the specified identifier. </stringProp>
+          <stringProp name="TestPlan.comments">Get the activity by id</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="activities POST">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Post an activity">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -171,21 +173,21 @@
                 <stringProp name="Argument.value">{&#xd;
   &quot;ID&quot;: ${ActivityID},&#xd;
   &quot;Title&quot;: ${ActivityTitle},&#xd;
-  &quot;DueDate&quot;: ${ActivityDueDate},&#xd;
-  &quot;Completed&quot;: ${ActivityCompleted}&#xd;
+  &quot;DueDate&quot;: ${DueDate},&#xd;
+  &quot;Completed&quot;: ${Completed}&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Activities</stringProp>
+          <stringProp name="HTTPSampler.path">/api/activities</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Posts an activity. </stringProp>
+          <stringProp name="TestPlan.comments">Posts an activity</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="activities PUT ">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Put an activity">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -193,65 +195,65 @@
                 <stringProp name="Argument.value">{&#xd;
   &quot;ID&quot;: ${ActivityID},&#xd;
   &quot;Title&quot;: ${ActivityTitle},&#xd;
-  &quot;DueDate&quot;: ${ActivityDueDate},&#xd;
-  &quot;Completed&quot;: ${ActivityCompleted}&#xd;
+  &quot;DueDate&quot;: ${DueDate},&#xd;
+  &quot;Completed&quot;: ${Completed}&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Activities/${ActivityID}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/activities/${activityID}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Puts an activity. </stringProp>
+          <stringProp name="TestPlan.comments">Put an activity by id</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="activities DELETE ">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Delete an activity">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Activities/${id}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/activities/${id}</stringProp>
           <stringProp name="HTTPSampler.method">DELETE</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Deletes the specified activity. </stringProp>
+          <stringProp name="TestPlan.comments">Delete an activity by id</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="authorsAuthorsForBook GET ">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get authors for book" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/authors/books/${bookId}</stringProp>
+          <stringProp name="HTTPSampler.path">/authors/books/${BookId}</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Authors for book. </stringProp>
+          <stringProp name="TestPlan.comments">Get authors for book by book id</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="authors GET">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get an author" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Authors/${id}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/authors/${id}</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Gets the specified author. </stringProp>
+          <stringProp name="TestPlan.comments">Get an author</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="authors all GET">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get all authors" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Authors</stringProp>
+          <stringProp name="HTTPSampler.path">/api/authors</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Gets all Authors. </stringProp>
+          <stringProp name="TestPlan.comments">Get all authors</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="authors POST">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Post an author" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -259,26 +261,21 @@
                 <stringProp name="Argument.value">{&#xd;
   &quot;ID&quot;: ${AuthorID},&#xd;
   &quot;IDBook&quot;: ${AuthorIDBook},&#xd;
-  &quot;FirstName&quot;: ${AuthorFirstName},&#xd;
-  &quot;LastName&quot;: ${AuthorLastName}&#xd;
-}&#xd;
-&#xd;
-&#xd;
-&#xd;
-&#xd;
-</stringProp>
+  &quot;FirstName&quot;: ${FirstName},&#xd;
+  &quot;LastName&quot;: ${LastName}&#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Authors</stringProp>
+          <stringProp name="HTTPSampler.path">/api/authors</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Posts an author. </stringProp>
+          <stringProp name="TestPlan.comments">Post an author</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="authors PUT">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Put an author" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -286,56 +283,54 @@
                 <stringProp name="Argument.value">{&#xd;
   &quot;ID&quot;: ${AuthorID},&#xd;
   &quot;IDBook&quot;: ${AuthorIDBook},&#xd;
-  &quot;FirstName&quot;: ${AuthorFirstName},&#xd;
-  &quot;LastName&quot;: ${AuthorLastName}&#xd;
-}&#xd;
-&#xd;
-</stringProp>
+  &quot;FirstName&quot;: ${FirstName},&#xd;
+  &quot;LastName&quot;: ${LastName}&#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Authors/${AuthorID}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/authors/${authorID}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Puts an author. </stringProp>
+          <stringProp name="TestPlan.comments">Put an author by id</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="authors DELETE">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Delete an author" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Authors/${id}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/authors/${id}</stringProp>
           <stringProp name="HTTPSampler.method">DELETE</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Deletes the specified author. </stringProp>
+          <stringProp name="TestPlan.comments">Delete an author by id</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="books all GET">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get all books" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Books</stringProp>
+          <stringProp name="HTTPSampler.path">/api/books</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Gets all books. </stringProp>
+          <stringProp name="TestPlan.comments">Get all books</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="books GET">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get a book" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Books/${id}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/books/${id}</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Gets the specified book. </stringProp>
+          <stringProp name="TestPlan.comments">Get a book by id</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="books PUT">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Put a book" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -343,27 +338,23 @@
                 <stringProp name="Argument.value">{&#xd;
   &quot;ID&quot;: ${BookID},&#xd;
   &quot;Title&quot;: ${BookTitle},&#xd;
-  &quot;Description&quot;: ${BookDescription},&#xd;
-  &quot;PageCount&quot;: ${BookPageCount},&#xd;
-  &quot;Excerpt&quot;: ${BookExcerpt},&#xd;
-  &quot;PublishDate&quot;: ${BookPublishDate}&#xd;
-}&#xd;
-&#xd;
-&#xd;
-&#xd;
-</stringProp>
+  &quot;Description&quot;: ${Description},&#xd;
+  &quot;PageCount&quot;: ${PageCount},&#xd;
+  &quot;Excerpt&quot;: ${Excerpt},&#xd;
+  &quot;PublishDate&quot;: ${PublishDate}&#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Books/${BookID}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/books/${BookID}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Puts the specified book. </stringProp>
+          <stringProp name="TestPlan.comments">Put a book by id</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="books POST">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Post a book" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -371,74 +362,67 @@
                 <stringProp name="Argument.value">{&#xd;
   &quot;ID&quot;: ${BookID},&#xd;
   &quot;Title&quot;: ${BookTitle},&#xd;
-  &quot;Description&quot;: ${BookDescription},&#xd;
-  &quot;PageCount&quot;: ${BookPageCount},&#xd;
-  &quot;Excerpt&quot;: ${BookExcerpt},&#xd;
-  &quot;PublishDate&quot;: ${BookPublishDate}&#xd;
-}&#xd;
-&#xd;
-&#xd;
-&#xd;
-&#xd;
-&#xd;
-&#xd;
-</stringProp>
+  &quot;Description&quot;: ${Description},&#xd;
+  &quot;PageCount&quot;: ${PageCount},&#xd;
+  &quot;Excerpt&quot;: ${Excerpt},&#xd;
+  &quot;PublishDate&quot;: ${PublishDate}&#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Books</stringProp>
+          <stringProp name="HTTPSampler.path">/api/books</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Posts the book. </stringProp>
+          <stringProp name="TestPlan.comments">Post a book</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="books DELETE">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Delete a book" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Books/${id}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/books/${id}</stringProp>
           <stringProp name="HTTPSampler.method">DELETE</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Deletes the specified book. </stringProp>
+          <stringProp name="TestPlan.comments">Delete a book by id</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="coverPhotos all GET">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get all cover photos" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/CoverPhotos</stringProp>
+          <stringProp name="HTTPSampler.path">/api/coverPhotos</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Gets all cover photos. </stringProp>
+          <stringProp name="TestPlan.comments">Get all cover photos</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="coverPhotos GET">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get a cover photo" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/CoverPhotos/${id}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/coverPhotos/${id}</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Gets the cover photos. </stringProp>
+          <stringProp name="TestPlan.comments">Get a cover photo by id</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="coverPhotosCoverPhotosForBook  GET">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get all cover photos for a book" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/books/covers/${bookId}</stringProp>
+          <stringProp name="HTTPSampler.path">/books/covers/${BookId}</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Covers the cover photos for book. </stringProp>
+          <stringProp name="TestPlan.comments">Get all cover photos for a book by book id</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="coverPhotos PUT">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Put a cover photo" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -446,21 +430,21 @@
                 <stringProp name="Argument.value">{&#xd;
   &quot;ID&quot;: ${CoverPhotosID},&#xd;
   &quot;IDBook&quot;: ${CoverPhotosIDBook},&#xd;
-  &quot;Url&quot;: ${CoverPhotosUrl}&#xd;
+  &quot;Url&quot;: ${Url}&#xd;
 }&#xd;
 </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/CoverPhotos/${CoverPhotosID}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/coverPhotos/${CoverPhotosID}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Puts the cover photo. </stringProp>
+          <stringProp name="TestPlan.comments">Put a cover photo by id</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="coverPhotos POST">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Post a cover photo" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -468,7 +452,7 @@
                 <stringProp name="Argument.value">{&#xd;
   &quot;ID&quot;: ${CoverPhotosID},&#xd;
   &quot;IDBook&quot;: ${CoverPhotosIDBook},&#xd;
-  &quot;Url&quot;: ${CoverPhotosUrl}&#xd;
+  &quot;Url&quot;: ${Url}&#xd;
 }&#xd;
 &#xd;
 &#xd;
@@ -477,104 +461,97 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/CoverPhotos</stringProp>
+          <stringProp name="HTTPSampler.path">/api/coverPhotos</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Posts the cover photo. </stringProp>
+          <stringProp name="TestPlan.comments">Post a cover photo</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="coverPhotos DELETE">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Delete a cover photo" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/CoverPhotos/${id}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/coverPhotos/${id}</stringProp>
           <stringProp name="HTTPSampler.method">DELETE</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Deletes the specified cover photo. </stringProp>
+          <stringProp name="TestPlan.comments">Delete a cover photo by id</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="users all GET">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get all users" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Users</stringProp>
+          <stringProp name="HTTPSampler.path">/api/users</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Gets all users. </stringProp>
+          <stringProp name="TestPlan.comments">Get all users</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="users GET">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get an user" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Users/${id}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/users/${id}</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Gets the user. </stringProp>
+          <stringProp name="TestPlan.comments">Get an user by id</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="users POST">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Post an user" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <stringProp name="Argument.value">{&#xd;
   &quot;ID&quot;: ${UserID},&#xd;
-  &quot;UserName&quot;: ${UserUserName},&#xd;
-  &quot;Password&quot;: ${UserPassword}&#xd;
-}&#xd;
-&#xd;
-&#xd;
-&#xd;
-</stringProp>
+  &quot;UserName&quot;: ${UserName},&#xd;
+  &quot;Password&quot;: ${Password}&#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Users</stringProp>
+          <stringProp name="HTTPSampler.path">/api/users</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Posts the user. </stringProp>
+          <stringProp name="TestPlan.comments">Post an user</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="users PUT">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Put an user" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <stringProp name="Argument.value">{&#xd;
   &quot;ID&quot;: ${UserID},&#xd;
-  &quot;UserName&quot;: ${UserUserName},&#xd;
-  &quot;Password&quot;: ${UserPassword}&#xd;
-}&#xd;
-&#xd;
-&#xd;
-</stringProp>
+  &quot;UserName&quot;: ${UserName},&#xd;
+  &quot;Password&quot;: ${Password}&#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Users/${UserID}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/users/${UserID}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Puts the user. </stringProp>
+          <stringProp name="TestPlan.comments">Put an user by id</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="users DELETE">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Delete an user" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.path">/api/Users/${id}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/users/${id}</stringProp>
           <stringProp name="HTTPSampler.method">DELETE</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <stringProp name="TestPlan.comments">Deletes the specified user. </stringProp>
+          <stringProp name="TestPlan.comments">Delete an user by id</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
