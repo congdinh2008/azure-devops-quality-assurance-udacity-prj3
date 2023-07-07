@@ -1,43 +1,22 @@
 # Udacity Nanodegree: Cloud DevOps using Microsoft Azure - Project 3: Ensuring Quality Releases
 
 ## Table of Contents
-
-- [Overview](#overview)
-- [Getting Started](#getting-started)
-- [Dependencies](#dependencies)
-- [Instructions](#instructions)
-  - [Login with Azure CLI](#login-with-azure-cli)
-  - [Configure the storage account and state backend](#configure-the-storage-account-and-state-backend)
-  - [Configuring Terraform](#configuring-terraform)
-  - [Executing Terraform](#executing-terraform)
-  - [Setting up Azure DevOps](#setting-up-azure-devops)
-  - [Configuring the VM as a Resource](#configuring-the-vm-as-a-resource)
-  - [Adding service connection](#adding-service-connection)
-  - [Create a Service Principal for Terraform](#create-a-service-principal-for-terraform)
-  - [Run the pipeline](#run-the-pipeline)
-  - [Configure Azure Monitor](#configure-azure-monitor)
-  - [Configure Azure Log Analytics](#configure-azure-log-analytics)
-    - [Setting up custom logs](#setting-up-custom-logs)
-    - [Querying custom logs](#querying-custom-logs)
-- [Clean-up](#clean-up)
-- [Screenshots](#screenshots)
-  - [Environment creation & deployment](#environment-creation--deployment)
-    - [Terraform](#terraform)
-    - [Azure Pipeline](#azure-pipeline)
-  - [Automated testing](#automated-testing)
-    - [Postman](#postman)
-    - [Selenium](#selenium)
-    - [JMeter](#jmeter)
-  - [Monitoring & observability](#monitoring--observability)
-    - [Azure Monitor](#azure-monitor)
-    - [Azure Log Analytics](#azure-log-analytics)
-- [References](#references)
-- [Requirements](#requirements)
-- [License](#license)
+- [Udacity Nanodegree: Cloud DevOps using Microsoft Azure - Project 3: Ensuring Quality Releases](#udacity-nanodegree-cloud-devops-using-microsoft-azure---project-3-ensuring-quality-releases)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Getting Started](#getting-started)
+  - [Dependencies](#dependencies)
+  - [Instructions](#instructions)
+    - [Login with Azure CLI - create a Service Principal Terraform](#login-with-azure-cli---create-a-service-principal-terraform)
+    - [Configure the Storage Account and State Backend](#configure-the-storage-account-and-state-backend)
+    - [Create Packer Image](#create-packer-image)
+    - [Generate an SSH key pair and perform a keyscan to get the known hosts.](#generate-an-ssh-key-pair-and-perform-a-keyscan-to-get-the-known-hosts)
+    - [\[OPTIONAL\] Run terraform on local](#optional-run-terraform-on-local)
+    - [Create Azure Project, and configure Service Connection](#create-azure-project-and-configure-service-connection)
+    - [Upload files to Azure DevOps Library Secure files](#upload-files-to-azure-devops-library-secure-files)
+    - [Create a DevOps Pipeline](#create-a-devops-pipeline)
 
 ## Overview
-
-### Ensuring Quality Releases - Project Overview
 
 In this project, you'll develop and demonstrate your skills in using a variety of industry leading tools, especially Microsoft Azure, to create disposable test environments and run a variety of automated tests with the click of a button. Additionally, you'll monitor and provide insight into your application's behavior, and determine root causes by querying the application’s custom log files.
 
@@ -65,7 +44,7 @@ In this project, you'll develop and demonstrate your skills in using a variety o
 
 ## Instructions
 
-### Login Azure Account with Azure CLI - create a Service Principal for Terraform.
+### Login with Azure CLI - create a Service Principal Terraform
 
 - Firstly, login to the Azure CLI using::
 
@@ -187,7 +166,7 @@ Configure the storage account and state backend for Terraform to save its state 
     ```bash
     packer build packer-image.json
     ```
-### Generate an SSH key pair
+### Generate an SSH key pair and perform a keyscan to get the known hosts.
 
 - Generate a public/private key pair locally as:
     
@@ -197,6 +176,13 @@ Configure the storage account and state backend for Terraform to save its state 
     cat ~/.ssh/id_rsa.pub
     ```
     After running the command above you will have a public SSH Key available at ~/.ssh/id_rsa.pub path.
+
+- Perform keyscan
+    ```bash
+    ## Run in your local terminal
+    ssh-keyscan github.com
+    ```
+
 - Swap comment the following line in terraform.tfvars if you want to run terraform on local
 
     ```bash
