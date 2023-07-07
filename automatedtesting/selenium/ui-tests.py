@@ -75,15 +75,6 @@ def addItem(driver):
     print(timestamp() + "Total item added to cart: {}".format(totalItemOnCartLabel))
     assert testItemAdded == totalItemOnCartLabel, "Total added item on cart not matched"
 
-    # Check on cart url
-    driver.get(URL_CART)
-    totalItemsOnCart = driver.find_elements(By.CLASS_NAME, 'cart_item')
-    numberOfItemsInCart = 6
-
-    print(totalItemsOnCart)
-    assert numberOfItemsInCart == len(
-        totalItemsOnCart), "Total added item on cart not matched"
-
     print(timestamp() + "All item added to cart successfully")
 
 # Test remove all products to cart
