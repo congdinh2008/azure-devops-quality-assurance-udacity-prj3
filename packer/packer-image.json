@@ -7,7 +7,7 @@
   
       "image_name": "udacity-ubuntu-server-image",
       "resource_group": "Azuredevops",
-      "location": "East US",
+      "location": "Southeast Asia",
       "vm_size": "Standard_B1s"
     },
     "builders": [
@@ -34,19 +34,14 @@
     "provisioners": [
       {
         "inline": [
-          "apt-get update",
-          "apt-get upgrade -y",
-          "apt-get install python3-pip -y",
-          "apt-get install unzip -y",
-          "apt-get install -y chromium-browser",
-          "apt-get install python3-venv",
-          "python3 -m venv env",
-          "pip3 install selenium",
-          "wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip",
-          "unzip chromedriver_linux64.zip",
-          "rm chromedriver_linux64.zip",
-          "chown root:root chromedriver",
-          "chmod 777 chromedriver"
+          "sudo apt-get update",
+          "sudo apt-get upgrade -y",
+          "sudo apt-get install python3-pip -y",
+          "sudo apt-get install unzip -y",
+          "LATEST_CHROME=$(curl -s https://dl.google.com/linux/chrome/deb/dists/stable/main/binary-amd64/Packages | grep -E '^Version:' | awk '{ print $2 }' | head -n1 | cut -d'-' -f1) && LATEST_CHROMEDRIVER=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE) && sudo apt-get update && sudo apt-get install -y google-chrome-stable && wget https://chromedriver.storage.googleapis.com/$LATEST_CHROMEDRIVER/chromedriver_linux64.zip && unzip chromedriver_linux64.zip && sudo mv chromedriver /usr/local/bin/ && sudo apt-get install -y fonts-liberation",
+          "sudo apt-get install python3-venv",
+          "sudo python3 -m venv env",
+          "pip3 install selenium"
         ],
         "inline_shebang": "/bin/sh -x",
         "type": "shell",
