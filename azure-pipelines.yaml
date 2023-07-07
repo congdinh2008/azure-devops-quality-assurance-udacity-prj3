@@ -331,13 +331,13 @@ stages:
           #--------------------------------------------#
           # JMeter (Performance) Test Suite - Archive
           # ToDo: Complete the ArchiveFiles@2 task and publish step
-          - task: ArchiveFiles@2
-            displayName: "Archive Stress Test Report"
-            inputs:
-              rootFolderOrFile: "$(projectRoot)/log/jmeter/stress-test-report-html"
-              includeRootFolder: false
-              archiveType: "zip"
-              archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-stress-test-report-html.zip"
+          # - task: ArchiveFiles@2
+          #   displayName: "Archive Stress Test Report"
+          #   inputs:
+          #     rootFolderOrFile: "$(projectRoot)/log/jmeter/stress-test-report-html"
+          #     includeRootFolder: false
+          #     archiveType: "zip"
+          #     archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-stress-test-report-html.zip"
 
           - task: ArchiveFiles@2
             displayName: "Archive Endurance Test Report"
