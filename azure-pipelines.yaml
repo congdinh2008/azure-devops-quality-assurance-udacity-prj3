@@ -8,7 +8,7 @@ trigger:
 
 # ToDo: Replace the agent pool name, if you are using Udacity Cloud lab.
 # Otherwise, comment out the line below.
-pool: udacity-project03
+pool: Azure Pipelines
 
 variables:
   python.version: "3.7.6"
@@ -94,11 +94,12 @@ stages:
             displayName: "Terrafom init"
             inputs:
               provider: "azurerm"
-              command: "init -backend-config=backend.conf"
+              command: "init"
+              commandOptions: '-backend-config=backend.conf'
               workingDirectory: "$(projectRoot)/terraform/environments/test"
               backendServiceArm: "$(azureServiceConnectionId)"
               backendAzureRmResourceGroupName: "Azuredevops"
-              backendAzureRmStorageAccountName: "tfstate1919722654"
+              backendAzureRmStorageAccountName: "tfstate1912029924"
               backendAzureRmContainerName: "tfstate"
               backendAzureRmKey: "terraform.tfstate"
 
@@ -170,7 +171,7 @@ stages:
           - task: ArchiveFiles@2
             displayName: 'Archive PerformanceTestSuite'
             inputs:
-              rootFolderOrFile: 
+              rootFolderOrFile: "$(projectRoot)/automatedtesting/jmeter"
               includeRootFolder: false
               archiveType: 'zip'
               archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-perftests.zip'
@@ -195,8 +196,8 @@ stages:
                   displayName: "Deploy Azure Web App"
                   inputs:
                     azureSubscription: "udacity-connection" # ToDo
-                    appType: "webAppLinux"
-                    appName: "WebApplication-AppService-udacity-prj3" # ToDo
+                    appType: "webApp"
+                    appName: "WebApplication-AppService-congdinh-prj3" # ToDo
                     package: $(Pipeline.Workspace)/drop-fakerestapi/$(Build.BuildId)-fakerestapi.zip # ToDo: Use the published zip artifact.
 
       #--------------------------------------------#
@@ -212,10 +213,6 @@ stages:
           runOnce:
             deploy:
               steps:
-                - download: current
-                  displayName: "Download selenium artifact"
-                  artifact: drop-ui-tests # ToDo: Change/provide a name
-
                 - task: Bash@3
                   inputs:
                     targetType: "inline"
@@ -228,14 +225,16 @@ stages:
                       sudo apt-get install -y chromium-browser
                       pip3 install selenium
 
-                      sudo rm -rf chromedriver*
-                      LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-                      wget http://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip
-                      unzip chromedriver*.zip
-                      sudo mv chromedriver -f /usr/bin
+                      cd ~/
 
-                      /usr/bin/chromium-browser -version
-                      /usr/bin/chromedriver -version
+                      FILE=/home/testuser/app/chromedriver_linux64.zip
+                      if [ ! -f "$FILE" ]; then
+                        LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+                        wget http://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip
+                      fi
+
+                      unzip -o chromedriver_linux64.zip
+                      sudo ln -sf $PWD/chromedriver /usr/local/bin/chromedriver
 
   - stage: Testing
     displayName: Testing
@@ -260,7 +259,7 @@ stages:
             inputs:
               workingDirectory: "$(projectRoot)/automatedtesting/postman"
               targetType: "inline"
-              script: "newman run TestSuite.Data-Validation.json -e Test.environment.json --reporters cli,junit --reporter-junit-export TEST-DataValidation.xml"
+              script: "newman run TestSuite.Data-Validation.json -e Test.environment.json --reporters cli,junit --reporter-junit-export results/TEST-DataValidation.xml"
           # Postman Regression Test Suite
           # ToDo: Verify the working directory
           - task: Bash@3
@@ -269,14 +268,20 @@ stages:
             inputs:
               workingDirectory: "$(projectRoot)/automatedtesting/postman"
               targetType: "inline"
-              script: "newman run TestSuite.Regression.json -e Test.environment.json --reporters cli,junit --reporter-junit-export TEST-Regression.xml"
-          # Postman - Publish Results
+              script: "newman run TestSuite.Regression.json -e Test.environment.json --reporters cli,junit --reporter-junit-export results/TEST-Regression.xml"
+          
+          - task: PublishPipelineArtifact@1
+            displayName: Publish Postman Test Result
+            inputs:
+              targetPath: '$(projectRoot)/automatedtesting/postman/results'
+              artifactName: 'drop-postman-result'
+              # Postman - Publish Results
           # ToDo: Complete the task as explained here: https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/test/publish-test-results?view=azure-devops&tabs=trx%2Cyaml#yaml-snippet
           - task: PublishTestResults@2
             inputs:
               testResultsFormat: "JUnit"
-              testResultsFiles: "**/TEST-*.xml"
-              searchFolder: "$(projectRoot)/output/newman/" # ToDo
+              testResultsFiles: "TEST-*.xml"
+              searchFolder: "$(projectRoot)/automatedtesting/postman/results" # ToDo
               mergeTestResults: true
               testRunTitle: "Regression and validation test results" # ToDo
 
@@ -292,33 +297,33 @@ stages:
               script: |
                 sudo apt-get install openjdk-11-jre-headless -y
                 java -version
-                wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.tgz -O jmeter.tgz
+                wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.tgz -O jmeter.tgz
                 tar xzvf jmeter.tgz
-                apache-jmeter-5.4/bin/jmeter --version
+                apache-jmeter-5.6/bin/jmeter --version
                 # create log directory
                 mkdir -p log/jmeter
                 pwd
                 ls -la
 
           - task: Bash@3
-            displayName: Run JMeter Stress Test
-            inputs:
-              targetType: "inline"
-              script: |
-                ./apache-jmeter-5.4/bin/jmeter -n -t StressTestSuite.jmx \
-                -l log/jmeter/stress-test.csv \
-                -j log/jmeter/stress-test.log -e -f \
-                -o log/jmeter/stress-test-report-html
-
-          - task: Bash@3
             displayName: Run JMeter Endurance Test
             inputs:
               targetType: "inline"
               script: |
-                ./apache-jmeter-5.4/bin/jmeter -n -t EnduranceTestSuite.jmx \
+                ./apache-jmeter-5.6/bin/jmeter -n -t $(projectRoot)/automatedtesting/jmeter/EnduranceTestSuite.jmx \
                 -l log/jmeter/endurance-test.csv \
                 -j log/jmeter/endurance-test.log -e -f \
                 -o log/jmeter/endurance-test-report-html
+
+          - task: Bash@3
+            displayName: Run JMeter Stress Test
+            inputs:
+              targetType: "inline"
+              script: |
+                ./apache-jmeter-5.6/bin/jmeter -n -t $(projectRoot)/automatedtesting/jmeter/StressTestSuite.jmx \
+                -l log/jmeter/stress-test.csv \
+                -j log/jmeter/stress-test.log -e -f \
+                -o log/jmeter/stress-test-report-html
 
           #--------------------------------------------#
           # JMeter (Performance) Test Suite - Archive
@@ -339,10 +344,11 @@ stages:
               archiveType: "zip"
               archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-endurance-test-report-html.zip"
 
-          # JMeter Test Suite - Publish
-          - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)-perftests.zip
-            displayName: "Upload Package"
-            artifact: drop-perftests
+          - task: PublishPipelineArtifact@1
+            displayName: Publish JMeter logs
+            inputs:
+              targetPath: '$(projectRoot)/log/jmeter'
+              artifactName: 'drop-jmeter-logs'
 
   - stage: SeleniumTest
     displayName: UI Tests with Selenium
@@ -364,10 +370,20 @@ stages:
                   inputs:
                     targetType: "inline"
                     script: |
-                      mv /home/testuser/azagent/_work/1/drop-ui-tests/$(Build.BuildId)-ui-tests.zip app
-                      cd app
-                      unzip -o $(Build.BuildId)-ui-tests.zip
-                      export PATH=$PATH:/home/testuser/app
-                      echo "Starting Selenium Tests"
-                      python3 ui-tests.py >> selenium.log
-                      echo "Completed Selenium Tests. Check selenium.log for results."
+                      unzip -o $(Pipeline.Workspace)/drop-ui-tests/$(Build.BuildId)-ui-tests.zip -d .
+                      sudo mkdir -p /var/log/selenium
+                      sudo chmod 664 /var/log/selenium
+                      
+                      sudo python3 -u ui-tests.py
+                      ls
+                      # copy selenium log file to $(projectRoot)/log/selenium/
+                      cd $(projectRoot)
+                      mkdir -p log/selenium
+                      pwd
+                      sudo cp selenium.log log/selenium/selenium.log
+                      ls -la
+                - task: PublishPipelineArtifact@1
+                  displayName: Publish selenium logs
+                  inputs:
+                    targetPath: '$(projectRoot)/log/selenium/selenium.log'
+                    artifactName: 'drop-selenium-logs'
