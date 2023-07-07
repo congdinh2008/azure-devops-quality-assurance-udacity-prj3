@@ -18,6 +18,7 @@
     - [Create a DevOps Pipeline](#create-a-devops-pipeline)
   - [Configure Azure Monitor](#configure-azure-monitor)
   - [Configure Azure Log Analytics Workspace](#configure-azure-log-analytics-workspace)
+  - [Screenshots](#screenshots)
 
 ## Overview
 
@@ -209,7 +210,7 @@ Configure the storage account and state backend for Terraform to save its state 
 - Go to terraform/environments/test
 - Run the following command to import Resource Group if existed
   ```bash
-  terraform import module.resource_group.azurerm_resource_group.test /subscriptions/fc07707e-523e-4bb6-93e2-7c09a6a2fbd3/resourceGroups/Azuredevops
+  terraform import module.resource_group.azurerm_resource_group.test /subscriptions/fw37707e-577e-4bb6-93e2-7c09a6a2fbd3/resourceGroups/Azuredevops
   ```
 - Terraform Init
   ```bash
@@ -235,9 +236,12 @@ Configure the storage account and state backend for Terraform to save its state 
 ### Create Azure Project, and configure Service Connection
 
 - Create Azure DevOps Project
+  <img src="./screenshots/Create_Azure_DevOps_Project_01.png">
 
 - Create Service Connection
   Project Settings > Service Connection > Add Service Connection
+  <img src="./screenshots/Create_Service_Connection_Azure_DevOps_01.png">
+
 - Install Azure DevOps Extension
   - [Terraform Extension](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.custom-terraform-tasks&targetId=625be685-7d04-4b91-8e92-0a3f91f6c3ac&utm_source=vstsproduct&utm_medium=ExtHubManageList)
 
@@ -251,6 +255,9 @@ Configure the storage account and state backend for Terraform to save its state 
   - backend.conf
   - id_rsa.pub
   - id_rsa
+
+  <img src="./screenshots/Pipeline_Library_Secure_Files.png">
+
 
 ### Create a DevOps Pipeline
 
@@ -269,12 +276,21 @@ Configure the storage account and state backend for Terraform to save its state 
 - Navigate to the DevOps project, and select Pipeline and create a new one. You will use the following steps:
 
   - `Connect` - Choose the Github repository as the source code location.
+    
+    <img src="./screenshots/Pipeline_Choose_Connect.png">
+
 
   - `Select` - Select the Github repository containing the exercise starter code.
 
+    <img src="./screenshots/Pipeline_Select_GitHub_Repository.png">
+
   - `Configure` - Choose the Existing Azure Pipelines YAML file option. When you do not have any starter YAML file already, you can choose Starter pipeline option, as shown in the snapshot below.
 
+    <img src="./screenshots/Pipeline_Selected_Existing_Yaml_File.png">
+
   - `Edit and Review the azure-pipelines.yaml file` - Start with a minimal pipeline version and add more tasks/steps incrementally.
+  
+    <img src="./screenshots/Pipeline_Review_Or_Edit.png">
 
 - Run the pipeline and wait for it to complete
 
@@ -283,6 +299,8 @@ Configure the storage account and state backend for Terraform to save its state 
   And after the pipeline completes provisioning stage. You need to add new resources to environment `test`
 
   Pipelines > Environment > test > Add resource > Virtual Machines > Next > Linux Operating system
+
+  <img src="./screenshots/Pipeline_Environments_Register_VM_Script.png">
 
   Copy Registration script to run on created virtual machine
 
@@ -301,11 +319,18 @@ Configure the storage account and state backend for Terraform to save its state 
   mkdir azagent;cd azagent;curl -fkSL -o vstsagent.tar.gz https://vstsagentpackage.azureedge.net/agent/3.220.5/vsts-agent-linux-x64-3.220.5.tar.gz;tar -zxvf vstsagent.tar.gz; if [ -x "$(command -v systemctl)" ]; then ./config.sh --environment --environmentname "test" --acceptteeeula --agent $HOSTNAME --url https://dev.azure.com/your-organization/ --work _work --projectname 'udacity-project03' --auth PAT --token sfsnoraads4udh6yb3anzqasgzd6ocmyyus6p4v5b4fxa --runasservice; sudo ./svc.sh install; sudo ./svc.sh start; else ./config.sh --environment --environmentname "test" --acceptteeeula --agent $HOSTNAME --url https://dev.azure.com/your-organization/ --work _work --projectname 'udacity-project03' --auth PAT --token sfsnoraads4uwshrcnzqasgzd6ocmyyus6p4v5b4fxa; ./run.sh; fi
   ```
 
+  <img src="./screenshots/Pipeline_Run_Summary_Stages.png">
+  
+
 ## Configure Azure Monitor
 
-- Go to the Azure Portal
-- Select your application service
-- Create a new alert in the "Monitoring" group
+- Go to the Azure Portal > Web App Services
+ 
+  <img src="./screenshots/Web_App_Alerts.png">
+
+- Create a new Alert in the "Monitoring" group
+
+  <img src="./screenshots/Create_HTTP_404_Alert.png">
 
 ## Configure Azure Log Analytics Workspace
 
@@ -316,7 +341,10 @@ Configure the storage account and state backend for Terraform to save its state 
   # Enter workspace name when creating log analytics workspace
   sh create_log_analytics_workspace.sh
   ```
+  <img src="./screenshots/Log_Analytics_Workspace_Overview.png">
 - Go to the Azure Portal > Log Analytics Workspace > Agents
+  <img src="./screenshots/Log_Analytics_Workspace_Agents_Linux_Configuration.png">
+
 - Enter to the VM by ssh
   ```bash
   # Replace with your account in terraform.tfvars and VM IP address
@@ -328,8 +356,28 @@ Configure the storage account and state backend for Terraform to save its state 
   sudo /opt/microsoft/omsagent/bin/service_control restart <YOUR WORKSPACE ID>
   ```
 - Wait a few minutes for the server to connect
-- Go to "Advanced settings" to setup your custom log collector
-- You need to upload a sample log. Select one published as an artifact during the pipeline execution:
+  <img src="./screenshots/Log_Analytics_Workspace_Agents_Linux_Connected.png">
+- Go to Log Analytics workspace > Settings > Tables
+  
+  <img src="./screenshots/Log_Analytics_Workspace_Tables_Custom_Log.png">
+
+- Choose Create > New Custom Log (MMA-Based)
+
+  <img src="./screenshots/Create_Custom_Log_01.png">
+
+- You need to upload a sample log.
+
+  <img src="./screenshots/Create_Custom_Log_02.png">
+
+  <img src="./screenshots/Create_Custom_Log_03.png">
+  
+  <img src="./screenshots/Create_Custom_Log_04.png">
+  
+  <img src="./screenshots/Create_Custom_Log_05.png">
+
 - Querying custom logs
-  To query the custom logs, go to "Logs" in the "General" group of your Log Analytics workspace.
-  Select your custom log and run it:
+  
+  <img src="./screenshots/Selenium_query_custom_logs_table.png">  
+
+## Screenshots
+Link to the [Screenshots](https://github.com/congdinh2008/azure-devops-quality-assurance-udacity-prj3/tree/main/screenshots)
