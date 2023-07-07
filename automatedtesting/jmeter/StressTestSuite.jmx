@@ -51,7 +51,7 @@
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames">id</stringProp>
         <boolProp name="ignoreFirstLine">false</boolProp>
-        <stringProp name="delimiter">,</stringProp>
+        <stringProp name="delimiter">;</stringProp>
         <boolProp name="quotedData">false</boolProp>
         <boolProp name="recycle">true</boolProp>
         <boolProp name="stopThread">false</boolProp>
@@ -63,7 +63,7 @@
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames">BookId</stringProp>
         <boolProp name="ignoreFirstLine">false</boolProp>
-        <stringProp name="delimiter">,</stringProp>
+        <stringProp name="delimiter">;</stringProp>
         <boolProp name="quotedData">false</boolProp>
         <boolProp name="recycle">true</boolProp>
         <boolProp name="stopThread">false</boolProp>
@@ -75,7 +75,7 @@
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames">BookID,BookTitle,Description,PageCount,Excerpt,PublishDate</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
-        <stringProp name="delimiter">,</stringProp>
+        <stringProp name="delimiter">;</stringProp>
         <boolProp name="quotedData">false</boolProp>
         <boolProp name="recycle">true</boolProp>
         <boolProp name="stopThread">false</boolProp>
@@ -87,7 +87,7 @@
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames">ActivityID,ActivityTitle,DueDate,Completed</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
-        <stringProp name="delimiter">,</stringProp>
+        <stringProp name="delimiter">;</stringProp>
         <boolProp name="quotedData">false</boolProp>
         <boolProp name="recycle">true</boolProp>
         <boolProp name="stopThread">false</boolProp>
@@ -99,7 +99,7 @@
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames">CoverPhotosID,CoverPhotosIDBook,Url</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
-        <stringProp name="delimiter">,</stringProp>
+        <stringProp name="delimiter">;</stringProp>
         <boolProp name="quotedData">false</boolProp>
         <boolProp name="recycle">true</boolProp>
         <boolProp name="stopThread">false</boolProp>
@@ -111,7 +111,7 @@
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames">UserID,UserName,Password</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
-        <stringProp name="delimiter">,</stringProp>
+        <stringProp name="delimiter">;</stringProp>
         <boolProp name="quotedData">false</boolProp>
         <boolProp name="recycle">true</boolProp>
         <boolProp name="stopThread">false</boolProp>
@@ -123,7 +123,7 @@
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames">AuthorID,AuthorIDBook,FirstName,LastName</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
-        <stringProp name="delimiter">,</stringProp>
+        <stringProp name="delimiter">;</stringProp>
         <boolProp name="quotedData">false</boolProp>
         <boolProp name="recycle">true</boolProp>
         <boolProp name="stopThread">false</boolProp>
@@ -132,14 +132,13 @@
       <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="StressTestSuite">
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">2</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
-        <stringProp name="ThreadGroup.duration"></stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">2</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
-        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
         <stringProp name="TestPlan.comments">Stress Test Suite</stringProp>
       </ThreadGroup>
       <hashTree>
