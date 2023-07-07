@@ -19,13 +19,13 @@ URL_CART = 'https://www.saucedemo.com/cart.html'
 
 def login(user, password):
     logging.info('Starting the login test')
-    # --uncomment when running in Azure DevOps.
-    # options = ChromeOptions()
-    # options.add_argument("--headless")
-    # driver = webdriver.Chrome(options=options)
+    # uncomment when running in Azure DevOps.
+    options = ChromeOptions()
+    options.add_argument("--headless")
+    driver = webdriver.Chrome(options=options)
 
     # On Local
-    driver = webdriver.Chrome()
+    # driver = webdriver.Chrome()
 
     logging.info(
         'Browser started successfully. Navigating to the demo page to login.')
@@ -82,6 +82,7 @@ def addItem(driver):
 
     logging.info("All item added to cart successfully")
 
+# Test remove all products to cart
 
 def removeItem(driver):
     logging.info("Start test remove item from the cart")
