@@ -46,3 +46,78 @@
 2023-07-06 12:54:18 INFO     Test removed item on the cart page
 2023-07-06 12:54:18 INFO     All item removed from cart successfully
 2023-07-06 12:54:18 INFO     UI Tests are successfully completed
+2023-07-07 23:31:10 INFO     Starting the login test
+2023-07-07 23:31:11 INFO     Browser started successfully. Navigating to the demo page to login.
+2023-07-07 23:31:12 INFO     Navigating to the demo page to login.
+2023-07-07 23:31:13 INFO     Login successfully as standard_user .
+2023-07-07 23:31:13 INFO     Start test adding item to cart
+2023-07-07 23:31:13 INFO     Add item: Sauce Labs Backpack
+2023-07-07 23:31:13 INFO     Add item: Sauce Labs Bike Light
+2023-07-07 23:31:13 INFO     Add item: Sauce Labs Bolt T-Shirt
+2023-07-07 23:31:13 INFO     Add item: Sauce Labs Fleece Jacket
+2023-07-07 23:31:13 INFO     Add item: Sauce Labs Onesie
+2023-07-07 23:31:13 INFO     Add item: Test.allTheThings() T-Shirt (Red)
+2023-07-07 23:31:13 INFO     Total tested item added to cart: 6
+2023-07-07 23:31:13 INFO     Total item added to cart: 6
+2023-07-07 23:31:13 INFO     All item added to cart successfully
+2023-07-07 23:31:13 INFO     Start test remove item from the cart
+2023-07-07 23:31:13 INFO     Remove item: Sauce Labs Backpack
+2023-07-07 23:31:13 INFO     Remove item: Sauce Labs Bike Light
+2023-07-07 23:31:13 INFO     Remove item: Sauce Labs Bolt T-Shirt
+2023-07-07 23:31:13 INFO     Remove item: Sauce Labs Fleece Jacket
+2023-07-07 23:31:13 INFO     Remove item: Sauce Labs Onesie
+2023-07-07 23:31:13 INFO     Remove item: Test.allTheThings() T-Shirt (Red)
+2023-07-07 23:31:13 INFO     Total tested item remove from the to cart: 6
+2023-07-07 23:31:13 INFO     Test removed item on the cart page
+2023-07-07 23:31:13 INFO     All item removed from cart successfully
+2023-07-07 23:31:13 INFO     UI Tests are successfully completed
+2023-07-07 23:31:34 INFO     Starting the login test
+2023-07-07 23:31:35 INFO     Browser started successfully. Navigating to the demo page to login.
+2023-07-07 23:31:35 INFO     Navigating to the demo page to login.
+2023-07-07 23:31:36 INFO     Login successfully as standard_user .
+2023-07-07 23:31:36 INFO     Start test adding item to cart
+2023-07-07 23:31:36 INFO     Add item: Sauce Labs Backpack
+2023-07-07 23:31:36 INFO     Add item: Sauce Labs Bike Light
+2023-07-07 23:31:36 INFO     Add item: Sauce Labs Bolt T-Shirt
+2023-07-07 23:31:36 INFO     Add item: Sauce Labs Fleece Jacket
+2023-07-07 23:31:36 INFO     Add item: Sauce Labs Onesie
+2023-07-07 23:31:36 INFO     Add item: Test.allTheThings() T-Shirt (Red)
+2023-07-07 23:31:36 INFO     Total tested item added to cart: 6
+2023-07-07 23:31:36 INFO     Total item added to cart: 6
+2023-07-07 23:31:36 INFO     All item added to cart successfully
+2023-07-07 23:31:36 INFO     Start test remove item from the cart
+2023-07-07 23:31:36 INFO     Remove item: Sauce Labs Backpack
+2023-07-07 23:31:36 INFO     Remove item: Sauce Labs Bike Light
+2023-07-07 23:31:36 INFO     Remove item: Sauce Labs Bolt T-Shirt
+2023-07-07 23:31:36 INFO     Remove item: Sauce Labs Fleece Jacket
+2023-07-07 23:31:36 INFO     Remove item: Sauce Labs Onesie
+2023-07-07 23:31:36 INFO     Remove item: Test.allTheThings() T-Shirt (Red)
+2023-07-07 23:31:36 INFO     Total tested item remove from the to cart: 6
+2023-07-07 23:31:36 INFO     Test removed item on the cart page
+2023-07-07 23:31:36 INFO     All item removed from cart successfully
+2023-07-07 23:31:36 INFO     UI Tests are successfully completed
+2023-07-07 23:32:37 INFO     Starting the login test
+2023-07-07 23:32:37 INFO     Browser started successfully. Navigating to the demo page to login.
+2023-07-07 23:32:38 INFO     Navigating to the demo page to login.
+2023-07-07 23:32:38 INFO     Login successfully as standard_user .
+2023-07-07 23:32:38 INFO     Start test adding item to cart
+2023-07-07 23:32:38 INFO     Add item: Sauce Labs Backpack
+2023-07-07 23:32:38 INFO     Add item: Sauce Labs Bike Light
+2023-07-07 23:32:38 INFO     Add item: Sauce Labs Bolt T-Shirt
+2023-07-07 23:32:38 INFO     Add item: Sauce Labs Fleece Jacket
+2023-07-07 23:32:38 INFO     Add item: Sauce Labs Onesie
+2023-07-07 23:32:39 INFO     Add item: Test.allTheThings() T-Shirt (Red)
+2023-07-07 23:32:39 INFO     Total tested item added to cart: 6
+2023-07-07 23:32:39 INFO     Total item added to cart: 6
+2023-07-07 23:32:39 INFO     All item added to cart successfully
+2023-07-07 23:32:39 INFO     Start test remove item from the cart
+2023-07-07 23:32:39 INFO     Remove item: Sauce Labs Backpack
+2023-07-07 23:32:39 INFO     Remove item: Sauce Labs Bike Light
+2023-07-07 23:32:39 INFO     Remove item: Sauce Labs Bolt T-Shirt
+2023-07-07 23:32:39 INFO     Remove item: Sauce Labs Fleece Jacket
+2023-07-07 23:32:39 INFO     Remove item: Sauce Labs Onesie
+2023-07-07 23:32:39 INFO     Remove item: Test.allTheThings() T-Shirt (Red)
+2023-07-07 23:32:39 INFO     Total tested item remove from the to cart: 6
+2023-07-07 23:32:39 INFO     Test removed item on the cart page
+2023-07-07 23:32:39 INFO     All item removed from cart successfully
+2023-07-07 23:32:39 INFO     UI Tests are successfully completed
