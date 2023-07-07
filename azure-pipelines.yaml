@@ -214,10 +214,6 @@ stages:
           runOnce:
             deploy:
               steps:
-                - download: current
-                  displayName: "Download selenium artifact"
-                  artifact: drop-ui-tests # ToDo: Change/provide a name
-
                 - task: Bash@3
                   inputs:
                     targetType: "inline"
@@ -377,8 +373,10 @@ stages:
                   inputs:
                     targetType: "inline"
                     script: |
+                      ls
                       mv /home/testuser/azagent/_work/1/drop-ui-tests/$(Build.BuildId)-ui-tests.zip app
                       cd app
+                      ls
                       unzip -o $(Build.BuildId)-ui-tests.zip
                       export PATH=$PATH:/home/testuser/app
                       echo "Starting Selenium Tests"
