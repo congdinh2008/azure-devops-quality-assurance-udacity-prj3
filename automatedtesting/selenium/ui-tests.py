@@ -21,7 +21,13 @@ def login(user, password):
     logging.info('Starting the login test')
     # uncomment when running in Azure DevOps.
     options = ChromeOptions()
-    options.add_argument("--headless")
+    options.add_argument("--no-sandbox") 
+    options.add_argument("--disable-dev-shm-usage") 
+    options.add_argument("--headless") 
+    options.add_argument("start-maximized")
+    options.add_argument("disable-infobars")
+    options.add_argument("--disable-extensions")
+    options.add_argument("--disable-gpu")
     driver = webdriver.Chrome(options=options)
 
     # On Local
