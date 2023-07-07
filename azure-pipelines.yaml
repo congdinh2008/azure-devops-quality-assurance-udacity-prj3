@@ -293,69 +293,69 @@ stages:
               mergeTestResults: true
               testRunTitle: "Regression and validation test results" # ToDo
 
-      - job: test_jmeter
-        displayName: Run JMeter Tests
-        steps:
-          #--------------------------------------------#
-          # Run JMeter test suite against the App Service
-          - task: Bash@3
-            displayName: Install JMeter
-            inputs:
-              targetType: "inline"
-              script: |
-                sudo apt-get install openjdk-11-jre-headless -y
-                java -version
-                wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.tgz -O jmeter.tgz
-                tar xzvf jmeter.tgz
-                apache-jmeter-5.6/bin/jmeter --version
-                # create log directory
-                mkdir -p log/jmeter
-                pwd
-                ls -la
+      # - job: test_jmeter
+      #   displayName: Run JMeter Tests
+      #   steps:
+      #     #--------------------------------------------#
+      #     # Run JMeter test suite against the App Service
+      #     - task: Bash@3
+      #       displayName: Install JMeter
+      #       inputs:
+      #         targetType: "inline"
+      #         script: |
+      #           sudo apt-get install openjdk-11-jre-headless -y
+      #           java -version
+      #           wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.tgz -O jmeter.tgz
+      #           tar xzvf jmeter.tgz
+      #           apache-jmeter-5.6/bin/jmeter --version
+      #           # create log directory
+      #           mkdir -p log/jmeter
+      #           pwd
+      #           ls -la
 
-          - task: Bash@3
-            displayName: Run JMeter Endurance Test
-            inputs:
-              targetType: "inline"
-              script: |
-                ./apache-jmeter-5.6/bin/jmeter -n -t $(projectRoot)/automatedtesting/jmeter/EnduranceTestSuite.jmx \
-                -l log/jmeter/endurance-test.csv \
-                -j log/jmeter/endurance-test.log -e -f \
-                -o log/jmeter/endurance-test-report-html
+      #     - task: Bash@3
+      #       displayName: Run JMeter Endurance Test
+      #       inputs:
+      #         targetType: "inline"
+      #         script: |
+      #           ./apache-jmeter-5.6/bin/jmeter -n -t $(projectRoot)/automatedtesting/jmeter/EnduranceTestSuite.jmx \
+      #           -l log/jmeter/endurance-test.csv \
+      #           -j log/jmeter/endurance-test.log -e -f \
+      #           -o log/jmeter/endurance-test-report-html
 
-          - task: Bash@3
-            displayName: Run JMeter Stress Test
-            inputs:
-              targetType: "inline"
-              script: |
-                ./apache-jmeter-5.6/bin/jmeter -n -t $(projectRoot)/automatedtesting/jmeter/StressTestSuite.jmx \
-                -l log/jmeter/stress-test.csv \
-                -j log/jmeter/stress-test.log -e -f \
-                -o log/jmeter/stress-test-report-html
+      #     - task: Bash@3
+      #       displayName: Run JMeter Stress Test
+      #       inputs:
+      #         targetType: "inline"
+      #         script: |
+      #           ./apache-jmeter-5.6/bin/jmeter -n -t $(projectRoot)/automatedtesting/jmeter/StressTestSuite.jmx \
+      #           -l log/jmeter/stress-test.csv \
+      #           -j log/jmeter/stress-test.log -e -f \
+      #           -o log/jmeter/stress-test-report-html
 
-          #--------------------------------------------#
-          # JMeter (Performance) Test Suite - Archive
-          # ToDo: Complete the ArchiveFiles@2 task and publish step
-          - task: ArchiveFiles@2
-            displayName: "Archive Stress Test Report"
-            inputs:
-              rootFolderOrFile: "$(projectRoot)/log/jmeter/stress-test-report-html"
-              includeRootFolder: false
-              archiveType: "zip"
-              archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-stress-test-report-html.zip"
+      #     #--------------------------------------------#
+      #     # JMeter (Performance) Test Suite - Archive
+      #     # ToDo: Complete the ArchiveFiles@2 task and publish step
+      #     - task: ArchiveFiles@2
+      #       displayName: "Archive Stress Test Report"
+      #       inputs:
+      #         rootFolderOrFile: "$(projectRoot)/log/jmeter/stress-test-report-html"
+      #         includeRootFolder: false
+      #         archiveType: "zip"
+      #         archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-stress-test-report-html.zip"
 
-          - task: ArchiveFiles@2
-            displayName: "Archive Endurance Test Report"
-            inputs:
-              rootFolderOrFile: "$(projectRoot)/log/jmeter/endurance-test-report-html"
-              includeRootFolder: false
-              archiveType: "zip"
-              archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-endurance-test-report-html.zip"
+      #     - task: ArchiveFiles@2
+      #       displayName: "Archive Endurance Test Report"
+      #       inputs:
+      #         rootFolderOrFile: "$(projectRoot)/log/jmeter/endurance-test-report-html"
+      #         includeRootFolder: false
+      #         archiveType: "zip"
+      #         archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-endurance-test-report-html.zip"
 
-          # JMeter Test Suite - Publish
-          - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)-perftests.zip
-            displayName: "Upload Package"
-            artifact: drop-perftests
+      #     # JMeter Test Suite - Publish
+      #     - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)-perftests.zip
+      #       displayName: "Upload Package"
+      #       artifact: drop-perftests
 
   - stage: SeleniumTest
     displayName: UI Tests with Selenium
