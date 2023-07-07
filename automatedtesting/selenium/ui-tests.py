@@ -83,6 +83,7 @@ def addItem(driver):
     totalItemsOnCart = driver.find_elements(By.CLASS_NAME, 'cart_item')
     numberOfItemsInCart = 6
 
+    print(totalItemsOnCart)
     assert numberOfItemsInCart == len(
         totalItemsOnCart), "Total added item on cart not matched"
 
