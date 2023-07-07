@@ -197,6 +197,42 @@ Configure the storage account and state backend for Terraform to save its state 
     cat ~/.ssh/id_rsa.pub
     ```
     After running the command above you will have a public SSH Key available at ~/.ssh/id_rsa.pub path.
+- Swap comment the following line in terraform.tfvars if you want to run terraform on local
+
+    ```bash
+    # Azure
+    public_key_path = "id_rsa.pub"
+
+    # Local
+    # public_key_path = "~/.ssh/id_rsa.pub"
+    ```
+### [OPTIONAL] Run terraform on local
+
+- Go to terraform/environments/test
+- Run the following command to import Resource Group if existed
+    ```bash
+    terraform import module.resource_group.azurerm_resource_group.test /subscriptions/fc07707e-523e-4bb6-93e2-7c09a6a2fbd3/resourceGroups/Azuredevops
+    ```
+- Terraform Init
+    ```bash
+    terraform init -backend-config=backend.conf
+    ```
+- Terraform Validate
+    ```bash
+    terraform validate
+    ```
+- Terraform Plan
+    ```bash
+    terraform plan -out solution.plan
+    ```
+- Terraform Apply
+    ```bash
+    terraform plan -out solution.plan
+    ```
+- Clean up
+    ```bash
+    terraform destroy
+    ```
 
 ### Create Azure Project, and configure Service Connection
 - Create Azure DevOps Project
@@ -218,6 +254,18 @@ Configure the storage account and state backend for Terraform to save its state 
 
 ### Create a DevOps Pipeline
 
+- Modify the following lines on azure-pipelines.yaml:
+
+    | Line #  | parameter | description |
+    | ------ | ------ | ------ |
+    | 81 | knownHostsEntry |  the knownHost of your ssh-keyscan github |
+    | 82 | sshPublicKey |  your public ssh key |
+    | 102 | backendAzureRmResourceGroupName |  based on your storage account info |
+    | 103 | backendAzureRmStorageAccountName |  based on your storage account info |
+    | 104 | backendAzureRmContainerName |  based on your storage account info |
+    | 105 | backendAzureRmKey |  based on your storage account info |
+    | 199 | azureSubscription | Pipeline > Service Connections  |
+
 - Navigate to the DevOps project, and select Pipeline and create a new one. You will use the following steps:
 
     + `Connect` - Choose the Github repository as the source code location.
@@ -228,4 +276,28 @@ Configure the storage account and state backend for Terraform to save its state 
 
     + `Edit and Review the azure-pipelines.yaml file` - Start with a minimal pipeline version and add more tasks/steps incrementally.
 
+- Run the pipeline and wait for it to complete
+    
+    At the first time, you need to permit access to the Azure Pipelines Library secure files
+    
+    And after the pipeline completes provisioning stage. You need to add new resources to environment `test`
+    
+    Pipelines > Environment > test > Add resource > Virtual Machines > Next > Linux Operating system
+    
+    Copy Registration script to run on created virtual machine
+
+    + Connect to Azure Virtual Machine
+    ```bash
+    # Replace with your account in terraform.tfvars and VM IP address
+    ssh account@20.24.18.81
+    ```
+    + Run Registration script
+
+    script similar to the following example:
+
+    ```bash
+    mkdir azagent;cd azagent;curl -fkSL -o vstsagent.tar.gz https://vstsagentpackage.azureedge.net/agent/3.220.5/vsts-agent-linux-x64-3.220.5.tar.gz;tar -zxvf vstsagent.tar.gz; if [ -x "$(command -v systemctl)" ]; then ./config.sh --environment --environmentname "test" --acceptteeeula --agent $HOSTNAME --url https://dev.azure.com/your-organization/ --work _work --projectname 'udacity-project03' --auth PAT --token sfsnoraads4udh6yb3anzqasgzd6ocmyyus6p4v5b4fxa --runasservice; sudo ./svc.sh install; sudo ./svc.sh start; else ./config.sh --environment --environmentname "test" --acceptteeeula --agent $HOSTNAME --url https://dev.azure.com/your-organization/ --work _work --projectname 'udacity-project03' --auth PAT --token sfsnoraads4uwshrcnzqasgzd6ocmyyus6p4v5b4fxa; ./run.sh; fi
+    ```
+
+    
 
