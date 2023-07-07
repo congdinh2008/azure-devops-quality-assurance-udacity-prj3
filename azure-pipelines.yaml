@@ -181,176 +181,176 @@ stages:
             displayName: 'Upload Package'
             artifact: drop-perftests
 
-  # - stage: Deployment
-  #   displayName: Deployment
-  #   jobs:
-  #     #--------------------------------------------#
-  #     # Deploy FakeRestAPI Web App
-  #     # ToDo: Provide <environment name> you created in your DevOps project
-  #     - deployment: FakeRestAPI
-  #       environment: $(environmentName) # ToDo
-  #       strategy:
-  #         runOnce:
-  #           deploy:
-  #             steps:
-  #               - task: AzureWebApp@1
-  #                 displayName: "Deploy Azure Web App"
-  #                 inputs:
-  #                   azureSubscription: "udacity-connection" # ToDo
-  #                   appType: "webApp"
-  #                   appName: "WebApplication-AppService-congdinh-prj3" # ToDo
-  #                   package: $(Pipeline.Workspace)/drop-fakerestapi/$(Build.BuildId)-fakerestapi.zip # ToDo: Use the published zip artifact.
+  - stage: Deployment
+    displayName: Deployment
+    jobs:
+      #--------------------------------------------#
+      # Deploy FakeRestAPI Web App
+      # ToDo: Provide <environment name> you created in your DevOps project
+      - deployment: FakeRestAPI
+        environment: $(environmentName) # ToDo
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: AzureWebApp@1
+                  displayName: "Deploy Azure Web App"
+                  inputs:
+                    azureSubscription: "udacity-connection" # ToDo
+                    appType: "webApp"
+                    appName: "WebApplication-AppService-congdinh-prj3" # ToDo
+                    package: $(Pipeline.Workspace)/drop-fakerestapi/$(Build.BuildId)-fakerestapi.zip # ToDo: Use the published zip artifact.
 
-  #     #--------------------------------------------#
-  #     # Deploy VM for Selenium | Functional UI Tests
-  #     # ToDo:
-  #     - deployment: VMDeploy
-  #       displayName: Deploy VM for Selenium Tests
-  #       environment:
-  #         name: $(environmentName) # ToDo: Change/provide a name
-  #         resourceType: VirtualMachine
-  #         tags: selenium
-  #       strategy:
-  #         runOnce:
-  #           deploy:
-  #             steps:
-  #               - task: Bash@3
-  #                 inputs:
-  #                   targetType: "inline"
-  #                   script: |
-  #                     #! /bin/bash
+      #--------------------------------------------#
+      # Deploy VM for Selenium | Functional UI Tests
+      # ToDo:
+      - deployment: VMDeploy
+        displayName: Deploy VM for Selenium Tests
+        environment:
+          name: $(environmentName) # ToDo: Change/provide a name
+          resourceType: VirtualMachine
+          tags: selenium
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: Bash@3
+                  inputs:
+                    targetType: "inline"
+                    script: |
+                      #! /bin/bash
 
-  #                     sudo apt-get upgrade -y
-  #                     sudo apt-get install python3-pip -y
-  #                     sudo apt-get install unzip -y
-  #                     sudo apt-get install -y chromium-browser
-  #                     pip3 install selenium
+                      sudo apt-get upgrade -y
+                      sudo apt-get install python3-pip -y
+                      sudo apt-get install unzip -y
+                      sudo apt-get install -y chromium-browser
+                      pip3 install selenium
 
-  #                     cd ~/
-  #                     DIR=/home/testuser/app
-  #                     if [ ! -d "$DIR" ]; then
-  #                         mkdir app
-  #                     fi
+                      cd ~/
+                      DIR=/home/testuser/app
+                      if [ ! -d "$DIR" ]; then
+                          mkdir app
+                      fi
                       
-  #                     FILE=/home/testuser/app/chromedriver_linux64.zip
-  #                     if [ ! -f "$FILE" ]; then
-  #                         wget https://chromedriver.storage.googleapis.com/112.0.5615.49/chromedriver_linux64.zip
-  #                     fi
-  #                     unzip -o chromedriver_linux64.zip
-  #                     sudo ln -sf $PWD/chromedriver /usr/local/bin/chromedriver
+                      FILE=/home/testuser/app/chromedriver_linux64.zip
+                      if [ ! -f "$FILE" ]; then
+                          wget https://chromedriver.storage.googleapis.com/112.0.5615.49/chromedriver_linux64.zip
+                      fi
+                      unzip -o chromedriver_linux64.zip
+                      sudo ln -sf $PWD/chromedriver /usr/local/bin/chromedriver
 
-  # - stage: Testing
-  #   displayName: Testing
-  #   jobs:
-  #     - job: test_postman
-  #       displayName: Run Postman Tests
-  #       steps:
-  #         #--------------------------------------------#
-  #         # Postman - Install Newman
-  #         # ToDo: Update the command and verify the working directory
-  #         - task: Bash@3
-  #           displayName: Install Newman
-  #           inputs:
-  #             targetType: "inline"
-  #             script: "sudo npm install -g newman"
-  #             workingDirectory: $(projectRoot)
-  #         # Postman Data Validation Test Suite
-  #         # ToDo: Verify the working directory
-  #         - task: Bash@3
-  #           displayName: Run Data Validation Tests
-  #           continueOnError: true
-  #           inputs:
-  #             workingDirectory: "$(projectRoot)/automatedtesting/postman"
-  #             targetType: "inline"
-  #             script: "newman run TestSuite.Data-Validation.json -e Test.environment.json --reporters cli,junit --reporter-junit-export results/TEST-DataValidation.xml"
-  #         # Postman Regression Test Suite
-  #         # ToDo: Verify the working directory
-  #         - task: Bash@3
-  #           displayName: Run Regression Tests
-  #           continueOnError: true
-  #           inputs:
-  #             workingDirectory: "$(projectRoot)/automatedtesting/postman"
-  #             targetType: "inline"
-  #             script: "newman run TestSuite.Regression.json -e Test.environment.json --reporters cli,junit --reporter-junit-export results/TEST-Regression.xml"
+  - stage: Testing
+    displayName: Testing
+    jobs:
+      - job: test_postman
+        displayName: Run Postman Tests
+        steps:
+          #--------------------------------------------#
+          # Postman - Install Newman
+          # ToDo: Update the command and verify the working directory
+          - task: Bash@3
+            displayName: Install Newman
+            inputs:
+              targetType: "inline"
+              script: "sudo npm install -g newman"
+              workingDirectory: $(projectRoot)
+          # Postman Data Validation Test Suite
+          # ToDo: Verify the working directory
+          - task: Bash@3
+            displayName: Run Data Validation Tests
+            continueOnError: true
+            inputs:
+              workingDirectory: "$(projectRoot)/automatedtesting/postman"
+              targetType: "inline"
+              script: "newman run TestSuite.Data-Validation.json -e Test.environment.json --reporters cli,junit --reporter-junit-export results/TEST-DataValidation.xml"
+          # Postman Regression Test Suite
+          # ToDo: Verify the working directory
+          - task: Bash@3
+            displayName: Run Regression Tests
+            continueOnError: true
+            inputs:
+              workingDirectory: "$(projectRoot)/automatedtesting/postman"
+              targetType: "inline"
+              script: "newman run TestSuite.Regression.json -e Test.environment.json --reporters cli,junit --reporter-junit-export results/TEST-Regression.xml"
           
-  #         - task: PublishPipelineArtifact@1
-  #           displayName: Publish Postman Test Result
-  #           inputs:
-  #             targetPath: '$(projectRoot)/automatedtesting/postman/results'
-  #             artifactName: 'drop-postman-result'
-  #             # Postman - Publish Results
-  #         # ToDo: Complete the task as explained here: https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/test/publish-test-results?view=azure-devops&tabs=trx%2Cyaml#yaml-snippet
-  #         - task: PublishTestResults@2
-  #           inputs:
-  #             testResultsFormat: "JUnit"
-  #             testResultsFiles: "TEST-*.xml"
-  #             searchFolder: "$(projectRoot)/automatedtesting/postman/results" # ToDo
-  #             mergeTestResults: true
-  #             testRunTitle: "Regression and validation test results" # ToDo
+          - task: PublishPipelineArtifact@1
+            displayName: Publish Postman Test Result
+            inputs:
+              targetPath: '$(projectRoot)/automatedtesting/postman/results'
+              artifactName: 'drop-postman-result'
+              # Postman - Publish Results
+          # ToDo: Complete the task as explained here: https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/test/publish-test-results?view=azure-devops&tabs=trx%2Cyaml#yaml-snippet
+          - task: PublishTestResults@2
+            inputs:
+              testResultsFormat: "JUnit"
+              testResultsFiles: "TEST-*.xml"
+              searchFolder: "$(projectRoot)/automatedtesting/postman/results" # ToDo
+              mergeTestResults: true
+              testRunTitle: "Regression and validation test results" # ToDo
 
-  #     - job: test_jmeter
-  #       displayName: Run JMeter Tests
-  #       steps:
-  #         #--------------------------------------------#
-  #         # Run JMeter test suite against the App Service
-  #         - task: Bash@3
-  #           displayName: Install JMeter
-  #           inputs:
-  #             targetType: "inline"
-  #             script: |
-  #               sudo apt-get install openjdk-11-jre-headless -y
-  #               java -version
-  #               wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.tgz -O jmeter.tgz
-  #               tar xzvf jmeter.tgz
-  #               apache-jmeter-5.6/bin/jmeter --version
-  #               # create log directory
-  #               mkdir -p log/jmeter
-  #               pwd
-  #               ls -la
+      - job: test_jmeter
+        displayName: Run JMeter Tests
+        steps:
+          #--------------------------------------------#
+          # Run JMeter test suite against the App Service
+          - task: Bash@3
+            displayName: Install JMeter
+            inputs:
+              targetType: "inline"
+              script: |
+                sudo apt-get install openjdk-11-jre-headless -y
+                java -version
+                wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.tgz -O jmeter.tgz
+                tar xzvf jmeter.tgz
+                apache-jmeter-5.6/bin/jmeter --version
+                # create log directory
+                mkdir -p log/jmeter
+                pwd
+                ls -la
 
-  #         - task: Bash@3
-  #           displayName: Run JMeter Endurance Test
-  #           inputs:
-  #             targetType: "inline"
-  #             script: |
-  #               ./apache-jmeter-5.6/bin/jmeter -n -t $(projectRoot)/automatedtesting/jmeter/EnduranceTestSuite.jmx \
-  #               -l log/jmeter/endurance-test.csv \
-  #               -j log/jmeter/endurance-test.log -e -f \
-  #               -o log/jmeter/endurance-test-report-html
+          - task: Bash@3
+            displayName: Run JMeter Endurance Test
+            inputs:
+              targetType: "inline"
+              script: |
+                ./apache-jmeter-5.6/bin/jmeter -n -t $(projectRoot)/automatedtesting/jmeter/EnduranceTestSuite.jmx \
+                -l log/jmeter/endurance-test.csv \
+                -j log/jmeter/endurance-test.log -e -f \
+                -o log/jmeter/endurance-test-report-html
 
-  #         - task: Bash@3
-  #           displayName: Run JMeter Stress Test
-  #           inputs:
-  #             targetType: "inline"
-  #             script: |
-  #               ./apache-jmeter-5.6/bin/jmeter -n -t $(projectRoot)/automatedtesting/jmeter/StressTestSuite.jmx \
-  #               -l log/jmeter/stress-test.csv \
-  #               -j log/jmeter/stress-test.log -e -f \
-  #               -o log/jmeter/stress-test-report-html
+          - task: Bash@3
+            displayName: Run JMeter Stress Test
+            inputs:
+              targetType: "inline"
+              script: |
+                ./apache-jmeter-5.6/bin/jmeter -n -t $(projectRoot)/automatedtesting/jmeter/StressTestSuite.jmx \
+                -l log/jmeter/stress-test.csv \
+                -j log/jmeter/stress-test.log -e -f \
+                -o log/jmeter/stress-test-report-html
 
-  #         #--------------------------------------------#
-  #         # JMeter (Performance) Test Suite - Archive
-  #         # ToDo: Complete the ArchiveFiles@2 task and publish step
-  #         - task: ArchiveFiles@2
-  #           displayName: "Archive Stress Test Report"
-  #           inputs:
-  #             rootFolderOrFile: "$(projectRoot)/log/jmeter/stress-test-report-html"
-  #             includeRootFolder: false
-  #             archiveType: "zip"
-  #             archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-stress-test-report-html.zip"
+          #--------------------------------------------#
+          # JMeter (Performance) Test Suite - Archive
+          # ToDo: Complete the ArchiveFiles@2 task and publish step
+          - task: ArchiveFiles@2
+            displayName: "Archive Stress Test Report"
+            inputs:
+              rootFolderOrFile: "$(projectRoot)/log/jmeter/stress-test-report-html"
+              includeRootFolder: false
+              archiveType: "zip"
+              archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-stress-test-report-html.zip"
 
-  #         - task: ArchiveFiles@2
-  #           displayName: "Archive Endurance Test Report"
-  #           inputs:
-  #             rootFolderOrFile: "$(projectRoot)/log/jmeter/endurance-test-report-html"
-  #             includeRootFolder: false
-  #             archiveType: "zip"
-  #             archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-endurance-test-report-html.zip"
+          - task: ArchiveFiles@2
+            displayName: "Archive Endurance Test Report"
+            inputs:
+              rootFolderOrFile: "$(projectRoot)/log/jmeter/endurance-test-report-html"
+              includeRootFolder: false
+              archiveType: "zip"
+              archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-endurance-test-report-html.zip"
 
-  #         # JMeter Test Suite - Publish
-  #         - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)-perftests.zip
-  #           displayName: "Upload Package"
-  #           artifact: drop-perftests
+          # JMeter Test Suite - Publish
+          - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)-perftests.zip
+            displayName: "Upload Package"
+            artifact: drop-perftests
 
   - stage: SeleniumTest
     displayName: UI Tests with Selenium
