@@ -24,109 +24,109 @@ stages:
   #--------------------------------------------#
   # PROVISIONING STAGE
   #--------------------------------------------#
-  - stage: Provisioning
-    displayName: Provisioning
-    jobs:
-      - job: ProvisioningTerraform
-        displayName: Provisioning - Terraform
-        steps:
+  # - stage: Provisioning
+  #   displayName: Provisioning
+  #   jobs:
+  #     - job: ProvisioningTerraform
+  #       displayName: Provisioning - Terraform
+  #       steps:
 
-          - task: DownloadSecureFile@1
-            displayName: "Download backend.conf file"
-            name: backendconf
-            inputs:
-              secureFile: "backend.conf"
+  #         - task: DownloadSecureFile@1
+  #           displayName: "Download backend.conf file"
+  #           name: backendconf
+  #           inputs:
+  #             secureFile: "backend.conf"
 
-          - task: Bash@3
-            displayName: "Copy backend.conf file"
-            inputs:
-              targetType: "inline"
-              script: |
-                #!/bin/bash
-                sudo cp $(backendconf.secureFilePath) terraform/environments/test/backend.conf
+  #         - task: Bash@3
+  #           displayName: "Copy backend.conf file"
+  #           inputs:
+  #             targetType: "inline"
+  #             script: |
+  #               #!/bin/bash
+  #               sudo cp $(backendconf.secureFilePath) terraform/environments/test/backend.conf
 
-          - task: DownloadSecureFile@1
-            displayName: "Download terraform.tfvars file"
-            name: tfvars
-            inputs:
-              secureFile: "terraform.tfvars"
+  #         - task: DownloadSecureFile@1
+  #           displayName: "Download terraform.tfvars file"
+  #           name: tfvars
+  #           inputs:
+  #             secureFile: "terraform.tfvars"
 
-          - task: Bash@3
-            displayName: "Copy terraform.tfvars file"
-            inputs:
-              targetType: "inline"
-              script: |
-                #!/bin/bash
-                sudo cp $(tfvars.secureFilePath) terraform/environments/test/terraform.tfvars
+  #         - task: Bash@3
+  #           displayName: "Copy terraform.tfvars file"
+  #           inputs:
+  #             targetType: "inline"
+  #             script: |
+  #               #!/bin/bash
+  #               sudo cp $(tfvars.secureFilePath) terraform/environments/test/terraform.tfvars
 
-          - task: DownloadSecureFile@1
-            displayName: "Download id_rsa.pub file"
-            name: id_rsa
-            inputs:
-              secureFile: "id_rsa.pub"
+  #         - task: DownloadSecureFile@1
+  #           displayName: "Download id_rsa.pub file"
+  #           name: id_rsa
+  #           inputs:
+  #             secureFile: "id_rsa.pub"
 
-          - task: Bash@3
-            displayName: "Copy id_rsa.pub file"
-            inputs:
-              targetType: "inline"
-              script: |
-                #!/bin/bash
-                sudo cp $(id_rsa.secureFilePath) terraform/environments/test/id_rsa.pub
+  #         - task: Bash@3
+  #           displayName: "Copy id_rsa.pub file"
+  #           inputs:
+  #             targetType: "inline"
+  #             script: |
+  #               #!/bin/bash
+  #               sudo cp $(id_rsa.secureFilePath) terraform/environments/test/id_rsa.pub
 
-          # OPTIONAL - This step is needed only if your Terraform VM uses an SSH key pair for login and you want your pipeline agent to connect to it.
-          # Generate an SSH key pair in your local/AZ Cloud shell. Use the public key in the Terraform VM module.
-          # Install public key and private key file to the pipeline agent, using the task below.
-          - task: InstallSSHKey@0
-            inputs:
-              knownHostsEntry: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk=" # variable value
-              sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDXfmy2H7PwXeJr9c2wlMexV/kVs3nbkJYz6nomRE9ongPkEVSQSxrBH2rJtlN68lYcdSL1byjC/kJ95jW5QRUKYw319ZzXeH7UdAwHTkCgWpF1e81s0tdYeU0cbYRY92bbnfvjOQs693fU53IheXSz5ihvrnX9g10pm/Wsp3bbdi48lRAyiK4b+3wofph/couU5ih8KASZEBRd/d4XgZehoUQL1+P6/RBOqd2XffTJPPkd8z++zbcEZL9ZQF8tP5guIX1PiVHQOTvbG1oucK/lrX+alA+ZYpkOFrGMElXuxeUUdtjmwRK9up10JlVcbwzf6LNqXf/Zm3OMhdj6mvormhYlESPo9C0rq2DAsO0DzmHEtxQHwHM8JhQach7EK91uATViH2tFT16joC2mzW6k+zToy82197jZ9x6426OOxmLhwJSCAOCKpxwutswpbfRlh6rqPAxBU29j+xyHm2/8ODfGXSRnl4fC2xjGU4skzl9V99JRkRCEWFQ3tq9yTt8=" # variable value
-              sshKeySecureFile: "id_rsa" # Use secure file feature in the pipeline library UI to save the "id_rsa" file, as mentioned here: https://learn.microsoft.com/en-us/azure/devops/pipelines/library/secure-files?view=azure-devops#add-a-secure-file
+  #         # OPTIONAL - This step is needed only if your Terraform VM uses an SSH key pair for login and you want your pipeline agent to connect to it.
+  #         # Generate an SSH key pair in your local/AZ Cloud shell. Use the public key in the Terraform VM module.
+  #         # Install public key and private key file to the pipeline agent, using the task below.
+  #         - task: InstallSSHKey@0
+  #           inputs:
+  #             knownHostsEntry: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk=" # variable value
+  #             sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDXfmy2H7PwXeJr9c2wlMexV/kVs3nbkJYz6nomRE9ongPkEVSQSxrBH2rJtlN68lYcdSL1byjC/kJ95jW5QRUKYw319ZzXeH7UdAwHTkCgWpF1e81s0tdYeU0cbYRY92bbnfvjOQs693fU53IheXSz5ihvrnX9g10pm/Wsp3bbdi48lRAyiK4b+3wofph/couU5ih8KASZEBRd/d4XgZehoUQL1+P6/RBOqd2XffTJPPkd8z++zbcEZL9ZQF8tP5guIX1PiVHQOTvbG1oucK/lrX+alA+ZYpkOFrGMElXuxeUUdtjmwRK9up10JlVcbwzf6LNqXf/Zm3OMhdj6mvormhYlESPo9C0rq2DAsO0DzmHEtxQHwHM8JhQach7EK91uATViH2tFT16joC2mzW6k+zToy82197jZ9x6426OOxmLhwJSCAOCKpxwutswpbfRlh6rqPAxBU29j+xyHm2/8ODfGXSRnl4fC2xjGU4skzl9V99JRkRCEWFQ3tq9yTt8=" # variable value
+  #             sshKeySecureFile: "id_rsa" # Use secure file feature in the pipeline library UI to save the "id_rsa" file, as mentioned here: https://learn.microsoft.com/en-us/azure/devops/pipelines/library/secure-files?view=azure-devops#add-a-secure-file
          
-          #--------------------------------------------#
-          # Use Terraform to create the Infrastructure
-          # Install Terraform on the pipeline agent
-          - task: TerraformInstaller@1
-            displayName: "Terrafom installation"
-            inputs:
-              terraformVersion: 'latest'
+  #         #--------------------------------------------#
+  #         # Use Terraform to create the Infrastructure
+  #         # Install Terraform on the pipeline agent
+  #         - task: TerraformInstaller@1
+  #           displayName: "Terrafom installation"
+  #           inputs:
+  #             terraformVersion: 'latest'
 
-          # Run Terraform Init on the pipeline agent
-          - task: TerraformTaskV3@3
-            displayName: "Terrafom init"
-            inputs:
-              provider: "azurerm"
-              command: "init"
-              commandOptions: '-backend-config=backend.conf'
-              workingDirectory: "$(projectRoot)/terraform/environments/test"
-              backendServiceArm: "$(azureServiceConnectionId)"
-              backendAzureRmResourceGroupName: "Azuredevops"
-              backendAzureRmStorageAccountName: "tfstate1912029924"
-              backendAzureRmContainerName: "tfstate"
-              backendAzureRmKey: "terraform.tfstate"
+  #         # Run Terraform Init on the pipeline agent
+  #         - task: TerraformTaskV3@3
+  #           displayName: "Terrafom init"
+  #           inputs:
+  #             provider: "azurerm"
+  #             command: "init"
+  #             commandOptions: '-backend-config=backend.conf'
+  #             workingDirectory: "$(projectRoot)/terraform/environments/test"
+  #             backendServiceArm: "$(azureServiceConnectionId)"
+  #             backendAzureRmResourceGroupName: "Azuredevops"
+  #             backendAzureRmStorageAccountName: "tfstate1912029924"
+  #             backendAzureRmContainerName: "tfstate"
+  #             backendAzureRmKey: "terraform.tfstate"
 
-          - task: TerraformTaskV3@3
-            displayName: Terraform validate
-            inputs:
-              workingDirectory: "$(projectRoot)/terraform/environments/test"
-              provider: "azurerm"
-              command: "validate"
+  #         - task: TerraformTaskV3@3
+  #           displayName: Terraform validate
+  #           inputs:
+  #             workingDirectory: "$(projectRoot)/terraform/environments/test"
+  #             provider: "azurerm"
+  #             command: "validate"
 
-          - task: TerraformTaskV3@3
-            displayName: "Terraform plan"
-            inputs:
-              provider: "azurerm"
-              command: "plan"
-              workingDirectory: "$(projectRoot)/terraform/environments/test/"
-              environmentServiceNameAzureRM: "udacity-connection"
+  #         - task: TerraformTaskV3@3
+  #           displayName: "Terraform plan"
+  #           inputs:
+  #             provider: "azurerm"
+  #             command: "plan"
+  #             workingDirectory: "$(projectRoot)/terraform/environments/test/"
+  #             environmentServiceNameAzureRM: "udacity-connection"
 
-          # Run Terraform Apply
-          - task: TerraformTaskV3@3
-            displayName: Terraform apply
-            inputs:
-              provider: "azurerm"
-              command: "apply"
-              workingDirectory: "$(projectRoot)/terraform/environments/test"
-              environmentServiceNameAzureRM: "$(azureServiceConnectionId)"
+  #         # Run Terraform Apply
+  #         - task: TerraformTaskV3@3
+  #           displayName: Terraform apply
+  #           inputs:
+  #             provider: "azurerm"
+  #             command: "apply"
+  #             workingDirectory: "$(projectRoot)/terraform/environments/test"
+  #             environmentServiceNameAzureRM: "$(azureServiceConnectionId)"
 
   #--------------------------------------------#
   # BUILD STAGE
