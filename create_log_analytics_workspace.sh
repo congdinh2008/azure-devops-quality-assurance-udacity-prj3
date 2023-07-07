@@ -1,1 +1,1 @@
-az deployment group create --name udaicity-log-analytics-ws -g AzureDevops -l southeastasia --template-file create_log_analytics_ws_template.json
+az deployment group create --name udaicity-log-analytics-ws -g Azuredevops --template-file create_log_analytics_ws_template.json
