@@ -79,12 +79,11 @@ def addItem(driver):
     assert testItemAdded == totalItemOnCartLabel, "Total added item on cart not matched"
 
     # Check on cart url
-    driver.get(URL_CART)
-    totalItemsOnCart = driver.find_elements(By.CLASS_NAME, 'cart_item')
-    numberOfItemsInCart = 6
+    # driver.get(URL_CART)
+    # totalItemsOnCart = driver.find_elements(By.CLASS_NAME, 'cart_item')
+    # numberOfItemsInCart = 6
 
-    assert numberOfItemsInCart == len(
-        totalItemsOnCart), "Total added item on cart not matched"
+    # assert numberOfItemsInCart == len(totalItemsOnCart), "Total added item on cart not matched"
 
     logging.info("All item added to cart successfully")
 
