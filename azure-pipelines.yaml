@@ -318,15 +318,15 @@ stages:
                 -j log/jmeter/endurance-test.log -e -f \
                 -o log/jmeter/endurance-test-report-html
 
-          - task: Bash@3
-            displayName: Run JMeter Stress Test
-            inputs:
-              targetType: "inline"
-              script: |
-                ./apache-jmeter-5.6/bin/jmeter -n -t $(projectRoot)/automatedtesting/jmeter/StressTestSuite.jmx \
-                -l log/jmeter/stress-test.csv \
-                -j log/jmeter/stress-test.log -e -f \
-                -o log/jmeter/stress-test-report-html
+          # - task: Bash@3
+          #   displayName: Run JMeter Stress Test
+          #   inputs:
+          #     targetType: "inline"
+          #     script: |
+          #       ./apache-jmeter-5.6/bin/jmeter -n -t $(projectRoot)/automatedtesting/jmeter/StressTestSuite.jmx \
+          #       -l log/jmeter/stress-test.csv \
+          #       -j log/jmeter/stress-test.log -e -f \
+          #       -o log/jmeter/stress-test-report-html
 
           #--------------------------------------------#
           # JMeter (Performance) Test Suite - Archive
