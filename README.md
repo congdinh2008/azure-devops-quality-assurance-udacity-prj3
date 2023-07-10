@@ -166,10 +166,10 @@ Configure the storage account and state backend for Terraform to save its state 
 - Export az authentication credentials
   ```bash
   ## Run on terminal - Replace with your account info
-  export AZ_SUBSCRIPTION_ID=fc07707e-523e-4bb6-93e2-7c09a6a2fbd3
-  export AZ_TENANT_ID=cd253f18-4b02-4f2f-b7b5-ac6ae67385d4
-  export AZ_CLIENT_ID=a9cdfd8f-5412-4927-a103-e47727b29b62
-  export AZ_CLIENT_SECRET=K4r8Q~aS9LH1ngM4.0dszKui4zF~FQ7pfMKsobZg
+  export AZ_SUBSCRIPTION_ID=fc07707e-523e-4ee6-93e2-7c09a6a2fbd3
+  export AZ_TENANT_ID=cd252f18-4c02-4f2f-b0b5-ac6ae67385d4
+  export AZ_CLIENT_ID=a9cdfd8f-5312-4927-a193-e47727b29b62
+  export AZ_CLIENT_SECRET=K458Q~aS9LH2egM4.0dsefui4zF~FQ7pfMKsobZg
   ```
 - Packer image
   ```bash
